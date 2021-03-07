@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import travelsMiddleware from 'src/middlewares/travelsMiddleware';
+import travelMiddleware from 'src/middlewares/travelMiddleware';
 import userMiddleware from 'src/middlewares/userMiddleware';
 
 import reducer from 'src/reducers';
@@ -9,6 +10,7 @@ import reducer from 'src/reducers';
 const enhancers = composeWithDevTools(
   applyMiddleware(
     travelsMiddleware,
+    travelMiddleware,
     userMiddleware,
     // ... d'autres middlewares
   ),

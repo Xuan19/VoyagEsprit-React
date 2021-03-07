@@ -6,12 +6,14 @@ import { combineReducers } from 'redux';
 
 // on importe tous les reducers
 import travelsReducer from './travels';
+import travelReducer from './travel';
 import userReducer from './user';
 
 // on définit le reducer principal, qui combine les autres
 const rootReducer = combineReducers({
   // nomDuTiroir: reducer qui gère cette partie du state
   travels: travelsReducer,
+  travel: travelReducer,
   user: userReducer,
 });
 

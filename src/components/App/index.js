@@ -1,10 +1,10 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-
+import { Route } from 'react-router-dom';
 // == Import
 import Home from 'src/containers/Home';
-
+import Travel from 'src/containers/Travel';
 import Loader from 'src/components/Loader';
 import Header from 'src/components/Header';
 
@@ -22,7 +22,19 @@ const App = ({ fetchTravels, loading }) => {
       {!loading && (
         <>
           <Header />
-          <Home />
+          <Route
+            path="/"
+            exact
+          >
+            <Home />
+          </Route>
+
+          <Route
+            path="/travel/:id"
+          >
+            <Travel />
+          </Route>
+
         </>
       )}
     </div>

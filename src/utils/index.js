@@ -17,5 +17,13 @@ export const slugifyTitle = (title) => (
  * @param {String} slug Slug to search for
  */
 export const gettravelBySlug = (travels, slug) => (
-  travels.find((currenttravel) => slugifyTitle(currenttravel.title) === slug)
+  travels.find((currenttravel) => slugifyTitle(currenttravel.name) === slug)
 );
+
+export const GetFormattedDate = (date) => {
+  const todayTime = new Date(date);
+  const month = todayTime.getMonth() + 1;
+  const day = todayTime.getDate();
+  const year = todayTime.getFullYear();
+  return `${day}/${month}/${year}`;
+};

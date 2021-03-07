@@ -1,17 +1,17 @@
 import axios from 'axios';
+import { FETCH_TRAVEL, saveTravel } from 'src/actions/travel';
 
-import { FETCH_TRAVELS, saveTravels } from 'src/actions/travels';
-
-const travelsMiddleware = (store) => (next) => (action) => {
+const travelMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
+  const id = localStorage.getItem('idTravel');
   switch (action.type) {
-    case FETCH_TRAVELS:
+    case FETCH_TRAVEL:
       // console.log('on est prêt à récupérer les recettes depuis l\'API');
-      axios.get('http://localhost:8000/api/v1/travels')
+      axios.get(`http://localhost:8000/api/v1/travel/${id}`)
         .then((response) => {
-          // console.log(response);
+          //console.log(response);
           // je voudrais enregistrer response.data dans le state => nouvelle action
-          store.dispatch(saveTravels(response.data));
+          store.dispatch(saveTravel(response.data));
         })
         .catch((error) => {
           console.warn(error);
@@ -25,4 +25,4 @@ const travelsMiddleware = (store) => (next) => (action) => {
       next(action);
   }
 };
-export default travelsMiddleware;
+export default travelMiddleware;

@@ -4,3 +4,28 @@ $stepsBackground: #f2f2f2;
 $navWidth: 240px;
 
 $titleBackground: #ccc;
+
+$primary-color: #F55D3E;
+$alt-color: #FFD275;
+$dark-color: #08415C;
+$light-color: #F0EBD8;
+$gutter: 2rem;
+
+
+// Global
+// $global-font: 'Roboto', sans-serif;
+$global-font-weight: 300;
+
+// Title
+// $title-font: 'Oswald', sans-serif;
+$title-font-weight: 500;
+$title-color: #000;
+$text-shadow-tamplate:
+    3px 3px 0 $dark-color,
+    -1px -1px 0 $dark-color,  
+    1px -1px 0 $dark-color,
+    -1px 1px 0 $dark-color,
+    1px 1px 0 $dark-color;
+// Post
+// $post-text-color: #666;
+//$post-hover-color: #f7f7f7;

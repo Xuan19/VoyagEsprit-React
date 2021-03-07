@@ -1,0 +1,94 @@
+@import 'src/styles/vars';
+
+.main-zone-secondary-div{
+    height: 500px;
+    top: 100px;
+  
+
+    .cpt-product-information{
+        display: flex;
+
+        .tabs{
+            .tablist{
+                color:$dark-color;
+                padding: $gutter/2;
+                font-weight: bold;
+                width: 100%;
+            }
+            .tabpanel{
+                margin: $gutter;
+                color:$dark-color;
+                .reviews-body{
+                    .reviews-list{
+                        padding: $gutter/2;
+                     .row{
+                         padding-bottom: $gutter;
+                         display: flex;
+                        .client-col{
+                            display: block;
+                            width: 120px;
+                            padding-right: $gutter;
+                            .client-name{
+                            font-weight: bold;
+                            
+                        }
+                        .client-rate{
+                            padding-top: $gutter/3;
+                        }
+
+                        }
+                        .comment{
+
+                        }
+
+                        }
+                    }
+
+                }
+
+                .title{
+                    padding: $gutter/2;
+                    font-weight: bold;
+                
+            }
+                 
+             
+            }
+        }
+       
+
+        }
+
+        }
+
+   @media only screen and (max-width: 1000px) {
+
+    .main-zone-secondary-div{
+        .cpt-product-information{
+            margin-top: $gutter;
+            display: inline-block;
+    
+            .tabs{
+                .tablist{
+                    color:$dark-color;
+                    padding: $gutter/2;
+                    font-weight: bold;
+                    width: 100%;
+                }
+                .tabpanel{
+                    color:$dark-color;
+    
+                 .title{
+                     padding: $gutter/2;
+                     font-weight: bold;
+                     
+                 }
+                }
+            }
+           
+    
+            }
+    
+            }
+}
+    

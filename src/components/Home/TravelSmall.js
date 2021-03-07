@@ -5,11 +5,13 @@ import classNames from 'classnames';
 import { slugifyTitle } from '../../utils';
 
 const TravelSmall = ({
+  id,
   name,
   price,
   isLiked,
 }) => {
   const cssClass = classNames('travel-small', { 'travel-small--favorite': isLiked });
+  localStorage.setItem('idTravel', id);
 
   return (
     <article className={cssClass}>
@@ -32,6 +34,7 @@ const TravelSmall = ({
 };
 
 TravelSmall.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   isLiked: PropTypes.bool.isRequired,
