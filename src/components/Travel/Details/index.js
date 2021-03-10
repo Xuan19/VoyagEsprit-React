@@ -41,10 +41,17 @@ const Details = ({
           <p className="description">
             {priceDetails}
           </p>
-
         </TabPanel>
+
         <TabPanel className="tabpanel">
-          {comments}
+          {comments.map((comment) => (
+            <div key={comment.id}>
+              <h2 className="title">{comment.user.lastName}</h2>
+              <p className="description">
+                {comment.body}
+              </p>
+            </div>
+          ))}
         </TabPanel>
       </Tabs>
 

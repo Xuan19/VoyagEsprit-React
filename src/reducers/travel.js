@@ -1,7 +1,7 @@
 import { SAVE_TRAVEL } from '../actions/travel';
 
 const initialState = {
-  travel: [],
+  travel: {},
   // indique si on affiche le loader
   loading: true,
 };

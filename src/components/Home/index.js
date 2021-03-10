@@ -14,7 +14,6 @@ const Home = ({ travels }) => (
   </main>
 );
 
-
 Home.propTypes = {
   travels: PropTypes.arrayOf(
     PropTypes.shape({

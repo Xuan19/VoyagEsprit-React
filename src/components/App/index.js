@@ -6,16 +6,17 @@ import { Route } from 'react-router-dom';
 import Home from 'src/containers/Home';
 import Travel from 'src/containers/Travel';
 import Loader from 'src/components/Loader';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
+import LoginForm from 'src/containers/LoginForm';
 
 import './styles.css';
 
 // == Composant
-const App = ({ fetchTravels, loading }) => {
+const App = ({ fetchTravels, loading, checkLogged}) => {
   useEffect(() => {
     fetchTravels();
+    checkLogged();
   }, []); // effet exécuté seulement après le premier rendu de l'application
-
   return (
     <div className="app">
       {loading && <Loader />}
@@ -30,10 +31,17 @@ const App = ({ fetchTravels, loading }) => {
           </Route>
 
           <Route
+            path="/connexion"
+          >
+            <LoginForm />
+          </Route>
+
+          <Route
             path="/travel/:id"
           >
             <Travel />
           </Route>
+
 
         </>
       )}
@@ -46,7 +54,7 @@ App.propTypes = {
   fetchTravels: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   // pas de paramètre
-  // checkLogged: PropTypes.func.isRequired,
+  checkLogged: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -11,7 +11,10 @@ const TravelSmall = ({
   isLiked,
 }) => {
   const cssClass = classNames('travel-small', { 'travel-small--favorite': isLiked });
-  localStorage.setItem('idTravel', id);
+
+  const handleCLick = () => {
+    localStorage.setItem('idTravel', id);
+  };
 
   return (
     <article className={cssClass}>
@@ -20,10 +23,11 @@ const TravelSmall = ({
         src={thumbnail}
       /> */}
       <div className="travel-small-content">
-        <h2>{ name }</h2>
+        <h2>{name}</h2>
         <p>Price: {price}</p>
         <Link
-          to={`/travel/${slugifyTitle(name)}`}
+          to={`travel/${slugifyTitle}`}
+          onClick={handleCLick}
         >
           Voir les détails
         </Link>

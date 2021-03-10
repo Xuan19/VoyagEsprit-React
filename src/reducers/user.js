@@ -1,4 +1,4 @@
-import { CHANGE_FIELD, SAVE_USER } from '../actions/user';
+import { CHANGE_FIELD, SAVE_USER, LOG_OUT } from '../actions/user';
 
 const initialState = {
   /** contenu du champ e-mail */
@@ -22,8 +22,13 @@ const userReducer = (state = initialState, action = {}) => {
     case SAVE_USER:
       return {
         ...state,
-        isLogged: action.isLogged,
-        userData: action.userData,
+        isLogged: true,
+      };
+
+    case LOG_OUT:
+      return {
+        ...state,
+        isLogged: false,
       };
 
     default: return state;

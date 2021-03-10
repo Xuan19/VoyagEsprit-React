@@ -13,6 +13,8 @@ const Highlight = ({
   cities,
   dates,
   image,
+  categories,
+  averageRating,
 }) => (
 
   <div className="main-zone-secondary-div">
@@ -21,7 +23,6 @@ const Highlight = ({
       <div className="activity-baseline">
         {name}
       </div>
-
       {/* <Carousel>
         <div className="carousel-image">
           <img src={`http://api.voyageons-sport.fr/assets/images/${image[0]}`} alt="" />
@@ -39,7 +40,7 @@ const Highlight = ({
       <div className="mains-infos-zone">
         <div className="activity-infos-details">
           <div className="ui-star-rating" role="radiogroup" tabIndex="-1">
-            <Rating icon="star" defaultRating={3} maxRating={5} size="huge" disabled />
+            <Rating icon="star" defaultRating={averageRating} maxRating={5} size="huge" disabled />
           </div>
           <div className="activity-price">
             <div className="activity-price-prefix">
@@ -61,19 +62,21 @@ const Highlight = ({
 
           <div className="activity-location">
 
-            <strong className="location"> {cities} </strong>
+            {cities.map((city) => (
+              <strong className="location" key={city.id}> {city.name} </strong>
+            ))}
 
           </div>
 
-          {/* <div className="activity-date">
+          <div className="activity-date">
             <strong className="date"> Date : </strong>
             {`du ${GetFormattedDate(dates[0].startAt)} au ${GetFormattedDate(dates[0].endAt)}`}
           </div>
 
           <div className="activity-duration">
             <strong className="duration">Durée : </strong>
-            {`${Math.floor((new Date(dates[0].startAt) - new Date(dates[0].endAt)) / (24 * 3600 * 1000)) + 1} jours`}
-          </div> */}
+            {`${Math.floor((new Date(dates[0].endAt) - new Date(dates[0].startAt)) / (24 * 3600 * 1000)) + 1} jours`}
+          </div>
         </div>
       </div>
     </div>
@@ -86,5 +89,7 @@ Highlight.propTypes = {
   image: PropTypes.array.isRequired,
   dates: PropTypes.array.isRequired,
   cities: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
+  averageRating: PropTypes.number.isRequired,
 };
 export default Highlight;

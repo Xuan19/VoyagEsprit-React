@@ -14,10 +14,9 @@ export const logIn = () => ({
   type: LOG_IN,
 });
 
-export const saveUser = (isLogged, userData) => ({
+export const saveUser = (token) => ({
   type: SAVE_USER,
-  isLogged,
-  userData,
+  token,
 });
 
 export const checkLogged = () => ({

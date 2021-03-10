@@ -6,7 +6,6 @@ const travelsMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_TRAVELS:
-      // console.log('on est prêt à récupérer les recettes depuis l\'API');
       axios.get('http://localhost:8000/api/v1/travels')
         .then((response) => {
           // console.log(response);

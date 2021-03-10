@@ -1,0 +1,97 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink, Redirect } from 'react-router-dom';
+import Field from './Field';
+import './loginForm.scss';
+
+const LoginForm = ({
+  email,
+  password,
+  changeField,
+  handleLogin,
+  isLogged,
+  LoggedisOk,
+  LoggedisNop,
+}) => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    handleLogin();
+  };
+
+  return (
+    <div className="login-form">
+      {isLogged && (
+        <Redirect to="/" />
+      )}
+      {!isLogged && (
+
+        <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+
+          <h1 className="login-title">Connexion</h1>
+          <Field
+            name="email"
+            placeholder="Email"
+            onChange={changeField}
+            value={email}
+          />
+          <Field
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            onChange={changeField}
+            value={password}
+          />
+          <button
+            type="submit"
+            className="login-form-button"
+          >
+            Envoyer
+          </button>
+          <p className="login-redirect">
+            Pas encore inscrit ? <NavLink to="/inscription" className="login-redirect-link">Inscrivez-vous</NavLink>
+          </p>
+          <p className="login-redirect">
+            Mot de passe oublié ? <NavLink to="/mot-de-passe-oublie" className="login-redirect-link">Réinitialiser le mot de passe</NavLink>
+          </p>
+          <div>
+            {LoggedisOk && (
+              <p className="reservation-redirect-ok">
+                Vous êtes connecté,  <NavLink to="*" className="reservation-redirect-link-ok">Retour à l'accueil</NavLink>
+              </p>
+            )}
+            {LoggedisNop && (
+              <div className="register-redirect-nop">
+                <p>
+                  Une erreur est survenue , merci de vérifier :
+                </p>
+                <ul className="register-redirect-nop-ul">
+                  <li>- Votre email</li>
+                  <li>- Votre mot de passe</li>
+                  <li>- Que votre compte existe</li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </form>
+      )}
+    </div>
+  );
+};
+
+LoginForm.propTypes = {
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  changeField: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+  LoggedisOk: PropTypes.bool,
+  LoggedisNop: PropTypes.bool,
+  isLogged: PropTypes.bool,
+};
+
+LoginForm.defaultProps = {
+  isLogged: false,
+  LoggedisOk: false,
+  LoggedisNop: false,
+};
+
+export default LoginForm;

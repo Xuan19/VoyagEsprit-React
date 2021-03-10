@@ -17,8 +17,8 @@ const Travel = ({
       {loading && <Loader />}
       {!loading && (
         <div className="travel">
-          <Highlight {...travel[0]} />
-          <Details {...travel[0]} />
+          <Highlight {...travel} />
+          <Details {...travel} />
         </div>
       )}
     </main>
@@ -27,8 +27,7 @@ const Travel = ({
 
 Travel.propTypes = {
   loading: PropTypes.bool.isRequired,
-  travel: PropTypes.array.isRequired,
-  // isLogged: PropTypes.bool.isRequired,
+  travel: PropTypes.object.isRequired,
   fetchTravel: PropTypes.func.isRequired,
 };
 
