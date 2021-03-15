@@ -1,4 +1,4 @@
-import { SAVE_TRAVELS } from '../actions/travels';
+import { SAVE_TRAVELS, FETCH_TRAVELS } from '../actions/travels';
 
 const initialState = {
   listTravels: [],
@@ -8,6 +8,11 @@ const initialState = {
 
 const travelsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // case FETCH_TRAVELS:
+    //   return {
+    //     ...state,
+    //     loading: true,
+    //   };
     case SAVE_TRAVELS:
       return {
         ...state,

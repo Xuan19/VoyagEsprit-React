@@ -8,6 +8,7 @@ import Travel from 'src/containers/Travel';
 import Loader from 'src/components/Loader';
 import Header from 'src/containers/Header';
 import LoginForm from 'src/containers/LoginForm';
+import Registration from 'src/containers/Registration';
 
 import './styles.css';
 
@@ -42,6 +43,11 @@ const App = ({ fetchTravels, loading, checkLogged}) => {
             <Travel />
           </Route>
 
+          <Route
+            path="/inscription"
+          >
+            <Registration />
+          </Route>
 
         </>
       )}

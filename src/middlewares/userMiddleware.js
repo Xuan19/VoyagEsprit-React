@@ -4,7 +4,9 @@ import {
   LOG_IN,
   LOG_OUT,
   CHECK_LOGGED,
+  HANDLE_REGISTER,
   saveUser,
+  saveRegister,
 } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -20,9 +22,39 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           store.dispatch(saveUser(response.data.token));
           localStorage.setItem('token', response.data.token);
+        })
+        .catch((error) => {
+          // console.log(error.response.data);
+        });
+
+      next(action);
+      break;
+    }
+    case HANDLE_REGISTER: {
+      const {
+        email,
+        password,
+        firstName,
+        lastName,
+      } = store.getState().user;
+      axios({
+        method: 'post',
+        url: 'http://localhost:8000/api/v1/register',
+        // withCredentials: true,
+        data: {
+          email,
+          password,
+          firstName,
+          lastName,
+        },
+      })
+        .then((response) => {
+           console.log(response);
+          store.dispatch(saveRegister(response.data));
+          //localStorage.setItem('token', response.data.token);
         })
         .catch((error) => {
           // console.log(error.response.data);

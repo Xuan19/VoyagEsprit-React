@@ -1,14 +1,19 @@
-import { CHANGE_FIELD, SAVE_USER, LOG_OUT } from '../actions/user';
+import { CHANGE_FIELD, SAVE_USER, LOG_OUT, SAVE_REGISTER } from '../actions/user';
 
 const initialState = {
   /** contenu du champ e-mail */
   email: '',
   /** contenu du champ password */
   password: '',
+  passwordConfirm: '',
   /** indique si l'utilisateur est loggué */
   isLogged: false,
   /** informations de l'utilisateur */
   userData: null,
+  firstName: '',
+  lastName: '',
+  isRegistered: false,
+
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -29,6 +34,12 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: false,
+      };
+
+    case SAVE_REGISTER:
+      return {
+        ...state,
+        isRegistered: true,
       };
 
     default: return state;

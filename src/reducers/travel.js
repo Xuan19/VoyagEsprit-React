@@ -1,4 +1,4 @@
-import { SAVE_TRAVEL } from '../actions/travel';
+import { SAVE_TRAVEL, FETCH_TRAVEL } from '../actions/travel';
 
 const initialState = {
   travel: {},
@@ -8,6 +8,12 @@ const initialState = {
 
 const travelReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    // case FETCH_TRAVEL:
+    //   return {
+    //     ...state,
+    //     loading: true,
+    //   };
+
     case SAVE_TRAVEL:
       return {
         ...state,

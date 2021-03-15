@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Field from './Field';
 import './loginForm.scss';
 
@@ -48,15 +48,15 @@ const LoginForm = ({
             Envoyer
           </button>
           <p className="login-redirect">
-            Pas encore inscrit ? <NavLink to="/inscription" className="login-redirect-link">Inscrivez-vous</NavLink>
+            Pas encore inscrit ? <Link to="/inscription" className="login-redirect-link">Inscrivez-vous</Link>
           </p>
           <p className="login-redirect">
-            Mot de passe oublié ? <NavLink to="/mot-de-passe-oublie" className="login-redirect-link">Réinitialiser le mot de passe</NavLink>
+            Mot de passe oublié ? <Link to="/mot-de-passe-oublie" className="login-redirect-link">Réinitialiser le mot de passe</Link>
           </p>
           <div>
             {LoggedisOk && (
               <p className="reservation-redirect-ok">
-                Vous êtes connecté,  <NavLink to="*" className="reservation-redirect-link-ok">Retour à l'accueil</NavLink>
+                Vous êtes connecté,  <Link to="*" className="reservation-redirect-link-ok">Retour à l'accueil</Link>
               </p>
             )}
             {LoggedisNop && (

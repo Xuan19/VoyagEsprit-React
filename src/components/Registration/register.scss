@@ -1,0 +1,198 @@
+@import 'src/styles/vars';
+.register{
+
+    text-align: left;
+    margin: $gutter * 4 auto;
+    width: 900px;
+
+    .register-title{
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: $gutter;
+        padding-bottom: $gutter / 2;
+        text-align: center;
+    }
+
+    .register-description{
+        font-size: 1.5rem;
+        padding: $gutter / 2;
+        margin-bottom: $gutter;
+        font-weight: 700;
+    }
+
+
+
+    .ReCAPTCHA{
+
+        display: flex;
+
+        .register-send-input{
+            order: 1;
+            width: 100%;
+            margin: 5px;
+            height: 45px;
+            margin-top: 15px;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+
+    .register-send-ok{
+        margin-top: $gutter / 2;
+        width: 100%;
+        background-color: rgba(40, 163, 40, 0.479);
+        text-align: center;
+        border-radius: 5px;
+
+        & p{
+            padding: 15px;
+        }
+    }
+
+    .register-send-nop{
+        margin-top: $gutter / 2;
+        width: 100%;
+        background-color: rgba(207, 95, 95, 0.479);
+        text-align: center;
+        border-radius: 5px;
+
+        & p{
+            padding: 15px;
+        }
+    }
+
+    .register-form{
+
+        margin: 2px;
+
+        .register-input{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .register-input-div{
+                padding-bottom: $gutter / 3;
+                width: 48%;
+                .register-input-content{
+                    height: 45px;
+                    width: 100%;
+                    margin-bottom: 15px;
+                    border: 1px solid #ced4da;
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+
+            .register-input-email{
+                padding-bottom: $gutter / 3;
+                width: 100%;
+                .register-input-content{
+                    height: 45px;
+                    width: 100%;
+                    margin-bottom: 15px;
+                    border: 1px solid #ced4da;
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    .register-redirect{
+
+        margin-top: $gutter;
+        text-align: center;
+
+        .register-redirect-link{
+            color: $primary-color;
+
+            &:hover{
+                color: $alt-color;
+            }
+        }
+    }
+
+    .register-redirect-ok{
+        margin-top: $gutter;
+        padding: $gutter;
+        color: $dark-color;
+        text-align: center;
+        background-color: rgba(40, 163, 40, 0.479);
+
+        .register-redirect-link{
+            color: $primary-color;
+
+            &:hover{
+                color: $alt-color;
+            }
+        }
+    }
+
+    .register-redirect-nop{
+        width: 500px;
+        margin: $gutter auto;
+        padding: $gutter;
+        color: $dark-color;
+        text-align: center;
+        background-color: rgba(207, 95, 95, 0.479);
+
+        .register-redirect-nop-ul{
+            text-align: left;
+            padding: $gutter/2;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+    .register{
+    
+        margin: $gutter * 2.5 auto;
+        width: 100%;
+        text-align: center;
+
+        .ReCAPTCHA{
+
+            flex-wrap: wrap;
+    
+            .register-send-input{
+                width: 100%;
+                margin: 5px;
+                height: 45px;
+                margin-top: 15px;
+                padding: 6px 12px;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+
+        .register-form{
+
+
+            .register-input{
+                display: block;
+
+                .register-input-div{
+                    width: 100%;
+                }
+            }
+        }
+
+        .register-redirect-nop{
+            width: 100%;
+            margin: $gutter auto;
+            padding: $gutter;
+            color: $dark-color;
+            text-align: center;
+            background-color: rgba(207, 95, 95, 0.479);
+    
+            .register-redirect-nop-ul{
+                text-align: left;
+                padding: $gutter/2;
+            }
+        }
+    }   
+}
