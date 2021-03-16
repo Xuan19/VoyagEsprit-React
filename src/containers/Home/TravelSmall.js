@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
     // si pas loggué, il ne peut pas y avoir de recettes favorites
-    // isFavorite: state.user.isLogged && state.user.userData.favorites.includes(ownProps.id),
+    // isFavorite: state.user.token && state.user.userData.favorites.includes(ownProps.id),
   };
 };
 

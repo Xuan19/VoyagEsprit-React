@@ -20,8 +20,7 @@ const Registration = ({
   isRegistered,
 }) => {
   const emailValide = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-  const passwordValide = password.lengh >= 6;
-  console.log(passwordValide);
+  const passwordValide = password.length >= 6;
   const [recaptchaValide, setRecaptchaValide] = useState(false);
   const [formValide, setFormValide] = useState(true);
   const handleSubmit = (e) => {

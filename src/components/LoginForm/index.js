@@ -10,8 +10,6 @@ const LoginForm = ({
   changeField,
   handleLogin,
   isLogged,
-  LoggedisOk,
-  LoggedisNop,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -54,12 +52,12 @@ const LoginForm = ({
             Mot de passe oublié ? <Link to="/mot-de-passe-oublie" className="login-redirect-link">Réinitialiser le mot de passe</Link>
           </p>
           <div>
-            {LoggedisOk && (
+            {isLogged && (
               <p className="reservation-redirect-ok">
                 Vous êtes connecté,  <Link to="*" className="reservation-redirect-link-ok">Retour à l'accueil</Link>
               </p>
             )}
-            {LoggedisNop && (
+            {isLogged && (
               <div className="register-redirect-nop">
                 <p>
                   Une erreur est survenue , merci de vérifier :
@@ -83,15 +81,7 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
-  LoggedisOk: PropTypes.bool,
-  LoggedisNop: PropTypes.bool,
-  isLogged: PropTypes.bool,
-};
-
-LoginForm.defaultProps = {
-  isLogged: false,
-  LoggedisOk: false,
-  LoggedisNop: false,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;

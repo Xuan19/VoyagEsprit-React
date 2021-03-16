@@ -52,7 +52,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-           console.log(response);
+          console.log(response);
           store.dispatch(saveRegister(response.data));
           //localStorage.setItem('token', response.data.token);
         })
@@ -64,18 +64,19 @@ const userMiddleware = (store) => (next) => (action) => {
       break;
     }
 
-    // case CHECK_LOGGED:
-    //   api({
-    //     method: 'post',
-    //     url: 'http://localhost:8000/api/v1/travels',
-    //   })
-    //     .then((response) => {
-    //       console.log(response);
-    //       store.dispatch(saveUser(response.data.logged, response.data.info));
-    //     });
+    case CHECK_LOGGED:
+      api.get('http://localhost:8000/api/v1/travels')
+        .then((response) => {
+          if (localStorage.getItem('token')) {
+            store.dispatch(saveUser(response.data));
+          }
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
 
-    //   next(action);
-    //   break;
+      next(action);
+      break;
 
     // case LOG_OUT:
     //   axios({

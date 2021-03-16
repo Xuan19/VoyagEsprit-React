@@ -4,10 +4,9 @@ import logo from 'src/assets/logo.png';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
-const Header = ({ isLogged, logOut }) => {
+const Header = ({ logOut, isLogged }) => {
   const handleLogout = () => {
-    //localStorage.clear();
+    localStorage.clear();
     logOut();
   };
 
@@ -15,18 +14,16 @@ const Header = ({ isLogged, logOut }) => {
     <div className="header">
       <img src={logo} alt="logo" />
       <div className="navigation-login-content">
-        {/* {isLogged && (<Link className="navigation-login" to="/tableau-de-bord">Tableau de bord</Link>)} */}
-        {!isLogged && (<Link className="navigation-login" to="/connexion">Connexion</Link>)}
-        {isLogged && (<Link onClick={handleLogout} className="navigation-login" to="/">Deconnexion</Link>)}
+        {/* {token && (<Link className="navigation-login" to="/tableau-de-bord">Tableau de bord</Link>)} */}
+        {(!isLogged) && (<Link className="navigation-login" to="/connexion">Connexion</Link>)}
+        {(isLogged) && (<Link onClick={handleLogout} className="navigation-login" to="/">Deconnexion</Link>)}
       </div>
     </div>
   );
 };
 
 Header.propTypes = {
-  isLogged: PropTypes.bool.isRequired,
   logOut: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
-
-// eslint-disable-next-line eol-last
 export default Header;

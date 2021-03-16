@@ -1,4 +1,5 @@
 import axios from 'axios';
+import api from 'src/api';
 
 import { FETCH_TRAVELS, saveTravels } from 'src/actions/travels';
 
@@ -6,7 +7,7 @@ const travelsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_TRAVELS:
       // console.log(store.getState().travels.loading);
-      axios.get('http://localhost:8000/api/v1/travels')
+      api.get('http://localhost:8000/api/v1/travels')
         .then((response) => {
           //  console.log(response);
           // je voudrais enregistrer response.data dans le state => nouvelle action
