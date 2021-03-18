@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 const Header = ({ logOut, isLogged }) => {
   const handleLogout = () => {
     localStorage.clear();
+    document.location.replace('/');
     logOut();
   };
 
@@ -14,9 +15,9 @@ const Header = ({ logOut, isLogged }) => {
     <div className="header">
       <img src={logo} alt="logo" />
       <div className="navigation-login-content">
-        {/* {token && (<Link className="navigation-login" to="/tableau-de-bord">Tableau de bord</Link>)} */}
-        {(!isLogged) && (<Link className="navigation-login" to="/connexion">Connexion</Link>)}
-        {(isLogged) && (<Link onClick={handleLogout} className="navigation-login" to="/">Deconnexion</Link>)}
+        {isLogged && (<Link className="navigation-login" to="/Profile">Profile</Link>)}
+        {!isLogged && (<Link className="navigation-login" to="/connexion">Connexion</Link>)}
+        {isLogged && (<Link onClick={handleLogout} className="navigation-login" to="/">Deconnexion</Link>)}
       </div>
     </div>
   );

@@ -9,11 +9,12 @@ import Loader from 'src/components/Loader';
 import Header from 'src/containers/Header';
 import LoginForm from 'src/containers/LoginForm';
 import Registration from 'src/containers/Registration';
+import Profile from 'src/containers/Profile';
 
 import './styles.css';
 
 // == Composant
-const App = ({ fetchTravels, loading, checkLogged}) => {
+const App = ({ fetchTravels, loading, checkLogged }) => {
   useEffect(() => {
     fetchTravels();
     checkLogged();
@@ -47,6 +48,10 @@ const App = ({ fetchTravels, loading, checkLogged}) => {
             path="/inscription"
           >
             <Registration />
+          </Route>
+
+          <Route path="/profile">
+            <Profile />
           </Route>
 
         </>

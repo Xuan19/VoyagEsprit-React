@@ -2,11 +2,14 @@ import axios from 'axios';
 import api from 'src/api';
 import {
   LOG_IN,
-  LOG_OUT,
   CHECK_LOGGED,
   HANDLE_REGISTER,
   saveUser,
   saveRegister,
+  FETCH_USER_INFO,
+  saveUserInfo,
+  HANDLE_PROFILE,
+  saveProfile,
 } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -23,7 +26,11 @@ const userMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           // console.log(response);
-          store.dispatch(saveUser(response.data.token));
+          store.dispatch(saveUser(
+            response.data.token,
+            response.data.firstName,
+            response.data.lastName,
+          ));
           localStorage.setItem('token', response.data.token);
         })
         .catch((error) => {
@@ -42,7 +49,7 @@ const userMiddleware = (store) => (next) => (action) => {
       } = store.getState().user;
       axios({
         method: 'post',
-        url: 'http://localhost:8000/api/v1/register',
+        url: 'http://localhost:8000/api/v1/public/register',
         // withCredentials: true,
         data: {
           email,
@@ -52,7 +59,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           store.dispatch(saveRegister(response.data));
           //localStorage.setItem('token', response.data.token);
         })
@@ -65,7 +72,7 @@ const userMiddleware = (store) => (next) => (action) => {
     }
 
     case CHECK_LOGGED:
-      api.get('http://localhost:8000/api/v1/travels')
+      api.get('http://localhost:8000/api/v1/public/travels')
         .then((response) => {
           if (localStorage.getItem('token')) {
             store.dispatch(saveUser(response.data));
@@ -78,23 +85,70 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
 
-    // case LOG_OUT:
-    //   axios({
-    //     method: 'post',
-    //     url: 'http://localhost:8000/logout',
-    //     // withCredentials : autorisation d'accéder au cookie
-    //     withCredentials: true,
-    //   })
-    //     .then((response) => {
-    //       console.log(response);
-    //       store.dispatch(saveUser(response.data.logged, response.data.info));
-    //     })
-    //     .catch((error) => {
-    //       console.warn(error);
-    //     });
+    case FETCH_USER_INFO: {
+      api({
+        method: 'get',
+        url: 'http://localhost:8000/api/v1/profile',
+      })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveUserInfo(
+            response.data.birthday,
+            response.data.email,
+            response.data.firstName,
+            // response.data.image,
+            response.data.lastName,
+            response.data.phoneNumber,
+          ));
+        })
+        .catch((error) => {
+          console.warn(error);
+          document.location.reload();
+          // store.dispatch(changeFieldLoading(false, 'loading'));
+        })
+        .finally(() => {
+          // document.location.reload();
+        });
 
-    //   next(action);
-    //   break;
+      next(action);
+      break;
+    }
+
+    case HANDLE_PROFILE: {
+      const {
+        email,
+        firstName,
+        lastName,
+        birthday,
+        phoneNumber,
+      } = store.getState().user;
+      api({
+        method: 'post',
+        url: 'http://localhost:8000/api/v1/profile',
+        // headers: {
+        //   'Content-Type': 'application/JSON',
+        // },
+        // withCredentials: true,
+        data: {
+          email,
+          firstName,
+          lastName,
+          birthday,
+          phoneNumber,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveProfile(response.data));
+          //localStorage.setItem('token', response.data.token);
+        })
+        .catch((error) => {
+          // console.log(error.response.data);
+        });
+
+      next(action);
+      break;
+    }
 
     default:
       // on passe l'action au suivant (middleware suivant ou reducer)

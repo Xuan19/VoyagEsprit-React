@@ -27,3 +27,47 @@ export const GetFormattedDate = (date) => {
   const year = todayTime.getFullYear();
   return `${day}/${month}/${year}`;
 };
+
+export const GetFormattedDateFiltres = (todayTime) => {
+  const month = todayTime.getMonth() + 1;
+  const day = todayTime.getDate();
+  const year = todayTime.getFullYear();
+  return `${day}/${month}/${year}`
+};
+
+export const GetFormattedDateUserInfo = (date) => {
+  const todayTime = new Date(date);
+  const month = todayTime.getMonth() + 1;
+  const day = todayTime.getDate();
+  const year = todayTime.getFullYear();
+  return `${day}-${month}-${year}`;
+};
+
+export const checkRating = (rating) => {
+  if (rating === null) {
+    return 0;
+  }
+
+  return rating;
+};
+
+export const DateIsNoNul = (date) => {
+  if (date) {
+    return '';
+  }
+  return date;
+};
+
+export const transfomrNoNull = (data) => {
+  if (data === null) {
+    return '';
+  }
+  return data;
+};
+
+const checkImage = (image) => {
+  if (image == null) {
+    return "https://media.istockphoto.com/vectors/default-placeholder-profile-icon-vector-id666542874?s=170x170"
+  }
+  return `http://localhost:8000/assets/profile/${image}`
+};
