@@ -29,6 +29,7 @@ const Profile = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleProfile();
+    document.location.reload();
   };
 
   return (
@@ -69,7 +70,8 @@ const Profile = ({
                   name="birthday"
                   label="Date de naissance"
                   onChange={changeField}
-                  value={GetFormattedDateUserInfo(birthday)}
+                  // value={GetFormattedDateUserInfo(birthday)}
+                  value={birthday}
                   placeholder="jj-mm-aaaa"
                 />
                 <Field

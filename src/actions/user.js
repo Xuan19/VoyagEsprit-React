@@ -1,4 +1,3 @@
-import { GetFormattedDateUserInfo } from 'src/utils';
 export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const LOG_IN = 'LOG_IN';
 export const SAVE_USER = 'SAVE_USER';
@@ -21,11 +20,9 @@ export const logIn = () => ({
   type: LOG_IN,
 });
 
-export const saveUser = (token, firstName, lastName) => ({
+export const saveUser = (data) => ({
   type: SAVE_USER,
-  token,
-  firstName,
-  lastName,
+  data,
 });
 
 export const checkLogged = () => ({
@@ -60,8 +57,4 @@ export const saveUserInfo = (birthday, email, firstName, lastName, phoneNumber) 
 
 export const handleProfile = () => ({
   type: HANDLE_PROFILE,
-});
-
-export const saveProfile = () => ({
-  type: SAVE_PROFILE,
 });

@@ -9,7 +9,7 @@ import {
   FETCH_USER_INFO,
   saveUserInfo,
   HANDLE_PROFILE,
-  saveProfile,
+  saveTravels,
 } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -25,11 +25,9 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          // console.log(response);
+          //  console.log(response.data);
           store.dispatch(saveUser(
-            response.data.token,
-            response.data.firstName,
-            response.data.lastName,
+            response.data,
           ));
           localStorage.setItem('token', response.data.token);
         })
@@ -72,26 +70,13 @@ const userMiddleware = (store) => (next) => (action) => {
     }
 
     case CHECK_LOGGED:
-      api.get('http://localhost:8000/api/v1/public/travels')
+      api.get('http://localhost:8000/api/v1/profile')
         .then((response) => {
-          if (localStorage.getItem('token')) {
-            store.dispatch(saveUser(response.data));
-          }
-        })
-        .catch((error) => {
-          console.warn(error);
-        });
-
-      next(action);
-      break;
-
-    case FETCH_USER_INFO: {
-      api({
-        method: 'get',
-        url: 'http://localhost:8000/api/v1/profile',
-      })
-        .then((response) => {
-          console.log(response);
+          // console.log(response);
+          // if (localStorage.getItem('token')) {
+          //   // console.log(localStorage.getItem('token'));
+          //   store.dispatch(saveUser(response));
+          // }
           store.dispatch(saveUserInfo(
             response.data.birthday,
             response.data.email,
@@ -102,8 +87,41 @@ const userMiddleware = (store) => (next) => (action) => {
           ));
         })
         .catch((error) => {
-          console.warn(error);
-          document.location.reload();
+          localStorage.clear();
+          api.get('http://localhost:8000/api/v1/public/travels')
+            .then((response) => {
+              //  console.log(response.data);
+              // je voudrais enregistrer response.data dans le state => nouvelle action
+              store.dispatch(saveTravels(response.data));
+            })
+            .catch((error) => {
+              // console.warn(error);
+            });
+        });
+
+      next(action);
+      break;
+
+    case FETCH_USER_INFO: {
+      axios({
+        method: 'get',
+        url: 'http://localhost:8000/api/v1/profile',
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      })
+        .then((response) => {
+          // console.log(response);
+          store.dispatch(saveUserInfo(
+            response.data.birthday,
+            response.data.email,
+            response.data.firstName,
+            // response.data.image,
+            response.data.lastName,
+            response.data.phoneNumber,
+          ));
+        })
+        .catch((error) => {
+          // console.warn(error);
+          document.location.replace('/connexion');
           // store.dispatch(changeFieldLoading(false, 'loading'));
         })
         .finally(() => {
@@ -122,9 +140,13 @@ const userMiddleware = (store) => (next) => (action) => {
         birthday,
         phoneNumber,
       } = store.getState().user;
-      api({
+      axios({
         method: 'post',
         url: 'http://localhost:8000/api/v1/profile',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          // 'Content-Type': 'application/JSON',
+        },
         // headers: {
         //   'Content-Type': 'application/JSON',
         // },
@@ -138,12 +160,19 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
-          store.dispatch(saveProfile(response.data));
-          //localStorage.setItem('token', response.data.token);
+          // console.log(response);
+          store.dispatch(saveUserInfo(
+            response.data.birthday,
+            response.data.email,
+            response.data.firstName,
+            // response.data.image,
+            response.data.lastName,
+            response.data.phoneNumber,
+          ));
         })
         .catch((error) => {
-          // console.log(error.response.data);
+          console.log(error.response.data);
+          document.location.replace('/connexion');
         });
 
       next(action);

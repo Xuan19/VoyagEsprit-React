@@ -17,7 +17,7 @@ const travelsMiddleware = (store) => (next) => (action) => {
           localStorage.clear();
           api.get('http://localhost:8000/api/v1/public/travels')
             .then((response) => {
-              //  console.log(response);
+              //  console.log(response.data);
               // je voudrais enregistrer response.data dans le state => nouvelle action
               store.dispatch(saveTravels(response.data));
             })
