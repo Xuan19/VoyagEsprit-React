@@ -9,7 +9,7 @@ import {
   FETCH_USER_INFO,
   saveUserInfo,
   HANDLE_PROFILE,
-  saveTravels,
+  saveMainTravelsFormInfo,
 } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -33,6 +33,9 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           // console.log(error.response.data);
+        })
+        .finally(() => {
+          // document.location.replace('/');
         });
 
       next(action);
@@ -88,11 +91,11 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           localStorage.clear();
-          api.get('http://localhost:8000/api/v1/public/travels')
+          api.get('http://localhost:8000/api/v1/public/main_travels_form_info')
             .then((response) => {
               //  console.log(response.data);
               // je voudrais enregistrer response.data dans le state => nouvelle action
-              store.dispatch(saveTravels(response.data));
+              store.dispatch(saveMainTravelsFormInfo(response.data));
             })
             .catch((error) => {
               // console.warn(error);

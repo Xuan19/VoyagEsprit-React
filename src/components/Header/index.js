@@ -13,7 +13,9 @@ const Header = ({ logOut, isLogged }) => {
 
   return (
     <div className="header">
-      <img src={logo} alt="logo" />
+      {/* <img src={logo} alt="logo" to="/" /> */}
+      <Link className="navigation-login" to="/"><img src={logo} alt="logo" /></Link>
+      <Link className="navigation-login" to="/destinations">Destinations</Link>
       <div className="navigation-login-content">
         {isLogged && (<Link className="navigation-login" to="/Profile">Profile</Link>)}
         {!isLogged && (<Link className="navigation-login" to="/connexion">Connexion</Link>)}

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import Home from 'src/components/Home';
+import Travels from 'src/components/Travels';
 
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: donnée à récupérer dans le state
-  travels: state.travels.listTravels,
+  mainTravels: state.travels.listTravels,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Home);
+)(Travels);

@@ -1,11 +1,45 @@
-export const FETCH_TRAVELS = 'FETCH_TRAVELS';
-export const SAVE_TRAVELS = 'SAVE_TRAVELS';
+export const FETCH_MAIN_TRAVELS_FORM_INFO = 'FETCH_MAIN_TRAVELS_FORM_INFO';
+export const SAVE_MAIN_TRAVELS_FORM_INFO = 'SAVE_MAIN_TRAVELS_FORM_INFO';
+export const FETCH_FORM_INFO = 'FETCH_FORM_INFO';
+export const SAVE_FORM_INFO = 'SAVE_FORM_INFO';
+export const SAVE_FILTERED_INFO = 'SAVE_FILTERED_INFO';
+export const CHANGE_FIELD = 'CHANGE_FIELD';
+export const CHANGE_DATE = 'CHANGE_DATE';
+export const FILTER = 'FILTER';
 
-export const fetchTravels = () => ({
-  type: FETCH_TRAVELS,
+export const fetchMainTravelsFormInfo = () => ({
+  type: FETCH_MAIN_TRAVELS_FORM_INFO,
 });
 
-export const saveTravels = (travels) => ({
-  type: SAVE_TRAVELS,
-  travels,
+export const saveMainTravelsFormInfo = (data) => ({
+  type: SAVE_MAIN_TRAVELS_FORM_INFO,
+  data,
+});
+export const fetchFormInfo = () => ({
+  type: FETCH_FORM_INFO,
+});
+
+export const saveFormInfo = (formData) => ({
+  type: SAVE_FORM_INFO,
+  formData,
+});
+
+export const changeField = (value, label) => ({
+  type: CHANGE_FIELD,
+  value,
+  label,
+});
+
+export const changeDate = (startDate) => ({
+  type: CHANGE_DATE,
+  startDate,
+});
+
+export const handleFilter = () => ({
+  type: FILTER,
+});
+
+export const saveFilteredInfo = (filteredData) => ({
+  type: SAVE_FILTERED_INFO,
+  filteredData,
 });

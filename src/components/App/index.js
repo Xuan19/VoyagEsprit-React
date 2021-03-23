@@ -3,9 +3,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 // == Import
-import Home from 'src/containers/Home';
+import Home from 'src/components/Home';
 import Travel from 'src/containers/Travel';
 import Loader from 'src/components/Loader';
+import Destinations from 'src/components/Destinations';
 import Header from 'src/containers/Header';
 import LoginForm from 'src/containers/LoginForm';
 import Registration from 'src/containers/Registration';
@@ -14,9 +15,9 @@ import Profile from 'src/containers/Profile';
 import './styles.css';
 
 // == Composant
-const App = ({ fetchTravels, loading, checkLogged }) => {
+const App = ({ fetchMainTravelsFormInfo, loading, checkLogged }) => {
   useEffect(() => {
-    fetchTravels();
+    fetchMainTravelsFormInfo();
     checkLogged();
   }, []); // effet exécuté seulement après le premier rendu de l'application
   return (
@@ -30,6 +31,12 @@ const App = ({ fetchTravels, loading, checkLogged }) => {
             exact
           >
             <Home />
+          </Route>
+
+          <Route
+            path="/destinations"
+          >
+            <Destinations />
           </Route>
 
           <Route
@@ -62,7 +69,8 @@ const App = ({ fetchTravels, loading, checkLogged }) => {
 
 App.propTypes = {
   // pas de paramètre
-  fetchTravels: PropTypes.func.isRequired,
+  fetchMainTravelsFormInfo: PropTypes.func.isRequired,
+  fetchFormInfo: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   // pas de paramètre
   checkLogged: PropTypes.func.isRequired,
