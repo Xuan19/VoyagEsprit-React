@@ -81,12 +81,7 @@ const userMiddleware = (store) => (next) => (action) => {
           //   store.dispatch(saveUser(response));
           // }
           store.dispatch(saveUserInfo(
-            response.data.birthday,
-            response.data.email,
-            response.data.firstName,
-            // response.data.image,
-            response.data.lastName,
-            response.data.phoneNumber,
+            response.data,
           ));
         })
         .catch((error) => {
@@ -112,14 +107,9 @@ const userMiddleware = (store) => (next) => (action) => {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
         .then((response) => {
-          // console.log(response);
+          console.log(response);
           store.dispatch(saveUserInfo(
-            response.data.birthday,
-            response.data.email,
-            response.data.firstName,
-            // response.data.image,
-            response.data.lastName,
-            response.data.phoneNumber,
+            response.data,
           ));
         })
         .catch((error) => {
@@ -163,14 +153,9 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          // console.log(response);
+          console.log(response);
           store.dispatch(saveUserInfo(
-            response.data.birthday,
-            response.data.email,
-            response.data.firstName,
-            // response.data.image,
-            response.data.lastName,
-            response.data.phoneNumber,
+            response.data,
           ));
         })
         .catch((error) => {

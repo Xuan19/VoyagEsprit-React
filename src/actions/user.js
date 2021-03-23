@@ -9,6 +9,8 @@ export const FETCH_USER_INFO = 'FETCH_USER_INFO';
 export const HANDLE_PROFILE = 'HANDLE_PROFILE';
 export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
+export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
 
 export const changeField = (newValue, identifier) => ({
   type: CHANGE_FIELD,
@@ -46,15 +48,19 @@ export const fetchUserInfo = () => ({
   type: FETCH_USER_INFO,
 });
 
-export const saveUserInfo = (birthday, email, firstName, lastName, phoneNumber) => ({
+export const saveUserInfo = (data) => ({
   type: SAVE_USER_INFO,
-  birthday,
-  email,
-  firstName,
-  lastName,
-  phoneNumber,
+  data,
 });
 
 export const handleProfile = () => ({
   type: HANDLE_PROFILE,
+});
+
+export const setLoadingFalse = () => ({
+  type: SET_LOADING_FALSE,
+});
+
+export const setLoadingTrue = () => ({
+  type: SET_LOADING_TRUE,
 });

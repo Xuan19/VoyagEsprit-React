@@ -2,10 +2,10 @@ import {
   CHANGE_FIELD,
   SAVE_USER,
   LOG_OUT,
-  LOG_IN,
   SAVE_REGISTER,
   SAVE_USER_INFO,
-  SAVE_PROFILE,
+  SET_LOADING_TRUE,
+  SET_LOADING_FALSE,
 } from '../actions/user';
 
 const initialState = {
@@ -34,12 +34,6 @@ const userReducer = (state = initialState, action = {}) => {
         [action.identifier]: action.newValue,
       };
 
-    case LOG_IN:
-      return {
-        ...state,
-        loading: true,
-      };
-
     case SAVE_USER:
       return {
         ...state,
@@ -64,20 +58,27 @@ const userReducer = (state = initialState, action = {}) => {
     case SAVE_USER_INFO:
       return {
         ...state,
-        firstName: action.firstName,
-        lastName: action.lastName,
-        email: action.email,
+        firstName: action.data.firstName,
+        lastName: action.data.lastName,
+        email: action.data.email,
         // image: action.image,
-        birthday: action.birthday,
-        phoneNumber: action.phoneNumber,
+        birthday: action.data.birthday,
+        phoneNumber: action.data.phoneNumber,
         loading: false,
         isLogged: true,
+
       };
 
-    case SAVE_PROFILE:
+    case SET_LOADING_TRUE:
       return {
         ...state,
         loading: true,
+      };
+
+    case SET_LOADING_FALSE:
+      return {
+        ...state,
+        loading: false,
       };
 
     default: return state;

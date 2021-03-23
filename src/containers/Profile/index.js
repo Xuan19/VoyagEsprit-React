@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import Profile from 'src/components/Profile';
 
-import { fetchUserInfo, handleProfile, changeField } from 'src/actions/user';
+import { fetchUserInfo, handleProfile, changeField, setLoadingTrue } from 'src/actions/user';
 // import { isLoading } from 'src/actions/travels';
 
 const mapStateToProps = (state) => ({
@@ -26,9 +26,9 @@ const mapDispatchToProps = (dispatch) => ({
   changeField: (value, name) => {
     dispatch(changeField(value, name));
   },
-  // isLoading: () => (
-  //   dispatch(isLoading())
-  // ),
+  setLoadingTrue: () => (
+    dispatch(setLoadingTrue())
+  ),
 });
 
 export default connect(

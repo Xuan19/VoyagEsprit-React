@@ -2,12 +2,13 @@ import { connect } from 'react-redux';
 
 import LoginForm from 'src/components/LoginForm';
 
-import { changeField, logIn, logOut } from 'src/actions/user';
+import { changeField, logIn, logOut, setLoadingFalse, setLoadingTrue } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
   password: state.user.password,
   isLogged: state.user.isLogged,
+  loading: state.user.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,6 +18,13 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleLogin: () => {
     dispatch(logIn());
+  },
+  setLoadingFalse: () => {
+    dispatch(setLoadingFalse());
+  },
+
+  setLoadingTrue: () => {
+    dispatch(setLoadingTrue());
   },
   handleLogout: () => {
     dispatch(logOut());

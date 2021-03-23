@@ -1,4 +1,4 @@
-import { SAVE_TRAVEL, FETCH_TRAVEL } from '../actions/travel';
+import { SAVE_TRAVEL } from '../actions/travel';
 
 const initialState = {
   travel: {},

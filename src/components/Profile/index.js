@@ -21,6 +21,7 @@ const Profile = ({
   phoneNumber,
   handleProfile,
   changeField,
+  setLoadingTrue,
 }) => {
   useEffect(() => {
     fetchUserInfo();
@@ -29,7 +30,7 @@ const Profile = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleProfile();
-    document.location.reload();
+    setLoadingTrue();
   };
 
   return (
@@ -112,6 +113,7 @@ Profile.propTypes = {
   loading: PropTypes.bool.isRequired,
   handleProfile: PropTypes.func.isRequired,
   fetchUserInfo: PropTypes.func.isRequired,
+  setLoadingTrue: PropTypes.func.isRequired,
 };
 
 export default Profile;
