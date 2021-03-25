@@ -16,11 +16,20 @@ const SearchBar = ({
   changeField,
   startDate,
   handleFilter,
-  changeDate
+  changeDate,
 }) => {
-  const handleChange = (evt) => {
-    // console.log(evt);
-    changeField(evt.value, evt.label);
+  const handleChange = (value, { action }) => {
+    // console.log(value);
+    // console.log(action);
+    switch (action) {
+      case 'input-change':
+        changeField(value.label, action.name);
+        break;
+      case 'clear':
+        changeField('', action.name);
+        break;
+      default:
+    }
   };
   const handleDateChange = (evt) => {
     changeDate(evt);
@@ -59,6 +68,7 @@ const SearchBar = ({
           name="destination"
           inputId="destination_field"
           options={listCountries}
+          inputValue=""
           onChange={handleChange}
           isClearable
           placeholder="Destination"

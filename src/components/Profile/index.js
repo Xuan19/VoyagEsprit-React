@@ -25,6 +25,7 @@ const Profile = ({
 }) => {
   useEffect(() => {
     fetchUserInfo();
+    setLoadingTrue();
   }, []);
 
   const handleSubmit = (evt) => {

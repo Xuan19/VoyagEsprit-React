@@ -14,7 +14,7 @@ const travelsMiddleware = (store) => (next) => (action) => {
       // console.log(store.getState().travels.loading);
       api.get('http://localhost:8000/api/v1/public/main_travels_form_info')
         .then((response) => {
-          //  console.log(response);
+           console.log(response);
           // je voudrais enregistrer response.data dans le state => nouvelle action
           store.dispatch(saveMainTravelsFormInfo(response.data));
         })
@@ -27,7 +27,7 @@ const travelsMiddleware = (store) => (next) => (action) => {
               store.dispatch(saveMainTravelsFormInfo(response.data));
             })
             .catch((error) => {
-              console.warn(error);
+              console.warn(error.response.data);
             });
         });
 
@@ -55,7 +55,7 @@ const travelsMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           store.dispatch(saveFilteredInfo(response.data));
           //localStorage.setItem('token', response.data.token);
         })

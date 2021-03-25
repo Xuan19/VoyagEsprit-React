@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TravelSmall from './TravelSmall';
-import './Travels.scss';
+import './travels.scss';
 
 const Travels = ({ mainTravels }) => {
   // console.log(mainTravels);
   return (
-    <main className="Travels">
+    <main className="travels">
       <div className="travels-small">
         {mainTravels.map((travel) => (
           <TravelSmall key={travel.id} {...travel} />
