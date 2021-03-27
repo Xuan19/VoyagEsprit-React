@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
 import { Carousel } from 'react-responsive-carousel';
 import './highlight.scss';
 import { Rating } from 'semantic-ui-react';
@@ -13,7 +13,6 @@ const Highlight = ({
   cities,
   dates,
   image,
-  categories,
   averageRating,
 }) => (
 
@@ -23,17 +22,9 @@ const Highlight = ({
       <div className="activity-baseline">
         {name}
       </div>
-      {/* <Carousel>
-        <div className="carousel-image">
-          <img src={`http://api.voyageons-sport.fr/assets/images/${image[0]}`} alt="" />
-        </div>
-        <div className="carousel-image">
-          <img src={`http://api.voyageons-sport.fr/assets/images/${image[1]}`} alt="" />
-        </div>
-        <div className="carousel-image">
-          <img src={`http://api.voyageons-sport.fr/assets/images/${image[2]}`} alt="" />
-        </div>
-      </Carousel> */}
+      <Carousel>
+        {image.map((img) => <img src={`http://localhost:8000/assets/images/${img}`} alt="" />)}
+      </Carousel>
 
     </div>
     <div className="top-right-col">
@@ -89,7 +80,6 @@ Highlight.propTypes = {
   image: PropTypes.array.isRequired,
   dates: PropTypes.array.isRequired,
   cities: PropTypes.array.isRequired,
-  categories: PropTypes.array.isRequired,
   averageRating: PropTypes.number.isRequired,
 };
 export default Highlight;

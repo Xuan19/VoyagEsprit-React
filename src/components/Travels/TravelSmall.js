@@ -24,16 +24,10 @@ const TravelSmall = ({
 
   return (
     <Card className="travel-small">
-      <Carousel>
-        {image.map((img) =>
-          <Image src={`http://localhost:8000/assets/images/${img}`} wrapped ui={false} />
-        )}
+      <Carousel showThumbs={false}>
+        {image.map((img) => <Image src={`http://localhost:8000/assets/images/${img}`} wrapped ui={false} key={img} />)}
       </Carousel>
       <article className={cssClass}>
-        {/* <img
-        alt=""
-        src={thumbnail}
-      /> */}
         <div className="travel-small-content">
           <h2>{name}</h2>
           <p>baseline: {baseline}</p>
@@ -53,7 +47,7 @@ const TravelSmall = ({
             <Rating icon="star" defaultRating={averageRating} maxRating={5} size="huge" disabled />
           </div>
           <Link
-            to={`travel/${slugifyTitle}`}
+            to={`travel/${slugifyTitle(name)}`}
             onClick={handleCLick}
           >
             Voir les détails
@@ -73,7 +67,7 @@ TravelSmall.propTypes = {
   dates: PropTypes.array.isRequired,
   cities: PropTypes.array.isRequired,
   image: PropTypes.array.isRequired,
-  averageRating: PropTypes.number.isRequired
+  averageRating: PropTypes.number.isRequired,
 };
 
 export default TravelSmall;

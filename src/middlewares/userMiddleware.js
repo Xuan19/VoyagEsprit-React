@@ -85,11 +85,10 @@ const userMiddleware = (store) => (next) => (action) => {
           ));
         })
         .catch((error) => {
-          localStorage.clear();
+          localStorage.setItem('token', '');
           api.get('http://localhost:8000/api/v1/public/main_travels_form_info')
             .then((response) => {
               //  console.log(response.data);
-              // je voudrais enregistrer response.data dans le state => nouvelle action
               store.dispatch(saveMainTravelsFormInfo(response.data));
             })
             .catch((error) => {
@@ -107,7 +106,7 @@ const userMiddleware = (store) => (next) => (action) => {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           store.dispatch(saveUserInfo(
             response.data,
           ));
@@ -153,13 +152,13 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           store.dispatch(saveUserInfo(
             response.data,
           ));
         })
         .catch((error) => {
-          console.log(error.response.data);
+          // console.log(error.response.data);
           document.location.replace('/connexion');
         });
 
