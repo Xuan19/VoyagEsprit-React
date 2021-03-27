@@ -55,6 +55,7 @@
     "webpack-merge": "*"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.5",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "date-fns": "^2.19.0",
