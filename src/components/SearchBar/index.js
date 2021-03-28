@@ -7,6 +7,7 @@ import fr from 'date-fns/esm/locale/fr';
 import 'react-datepicker/dist/react-datepicker.css';
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { GetFormattedDate } from 'src/utils';
+import { ButtonStyled, CategorySelect, DestinationSelect } from '../SearchBar/SearchBarStyled';
 
 registerLocale('fr', fr);
 
@@ -63,54 +64,56 @@ const SearchBar = ({
 
   return (
     <form action="" className="filter-form" onSubmit={handleSubmit}>
-      <div className="filter-form-input">
-        <Select
+      <div className="filter-form-input-category">
+        <CategorySelect
+          options={dataCategory}
+          onChange={handleChange}
+          isClearable
+          name="category"
+          inputId="category_field"
+          className="react-select-container"
+          classNamePrefix="react-select"
+          placeholder="Type de voyage"
+        />
+      </div>
+      <div className="filter-form-input-destination">
+        <DestinationSelect
           name="destination"
           inputId="destination_field"
           options={listCountries}
           inputValue=""
           onChange={handleChange}
           isClearable
+          className="react-select-container"
+          classNamePrefix="react-select"
           placeholder="Destination"
         />
       </div>
-
-      <div className="filter-form-input">
-        <Select
-          options={dataCategory}
-          onChange={handleChange}
-          isClearable
-          name="category"
-          inputId="category_field"
-          placeholder="Type de voyage"
+      <div className="filter-form-input-date">
+        <DatePicker
+          name="startDate"
+          selected={startDate}
+          onChange={handleDateChange}
+          // className="filter-input-content-datepicker"
+          // className="react-datepicker-wrapper"
+          wrapperClassName="datePicker"
+          dateFormat="d MMMM,yyyy"
+          minDate={new Date()}
+          todayButton="Today"
+          showYearDropdown
+          yearDropdownItemNumber={3}
+          placeholderText="Départ"
+          locale="fr"
         />
       </div>
-
-      <div className="filter-form-input-date">
-        <div className="date">
-          <DatePicker
-            name="startDate"
-            selected={startDate}
-            onChange={handleDateChange}
-            className="filter-input-content-datepicker"
-            dateFormat="d MMMM,yyyy"
-            minDate={new Date()}
-            todayButton="Today"
-            showYearDropdown
-            yearDropdownItemNumber={3}
-            placeholderText={GetFormattedDate(new Date())}
-            locale="fr"
-          />
-        </div>
-
+      <div className="filter-form-button">
+        <ButtonStyled
+          type="submit"
+          className="form-button"
+        >
+          Rechercher
+        </ButtonStyled>
       </div>
-      <button
-        type="submit"
-        className="form-button"
-      >
-        Rechercher
-      </button>
-
     </form>
   );
 };

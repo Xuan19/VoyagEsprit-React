@@ -1,0 +1,49 @@
+@import 'src/styles/vars';
+
+.home{
+
+    .filter-form{
+        display: flex;
+        margin: $gutter;
+        justify-content: center;
+
+        .filter-form-input-category{
+            width: 16%;
+            height: 3rem;
+            margin:$gutter / 8;
+        }
+
+        .filter-form-input-destination{
+            width: 25%;
+            margin:$gutter / 8;
+        }
+
+        .filter-form-input-date{
+            margin: $gutter / 8;  
+            width: 16%;           
+            .datePicker{
+                width: 100%;
+                .react-datepicker__input-container{        
+                    input{
+                        border: 1px solid #ced4da;
+                        border-radius: 5px;
+                        width: 100%;
+                        display:block;
+                        margin:auto;
+                        height: 3rem;
+                        color: hsl(0, 0%, 20%);
+                        padding: 3px 9px;
+                    }
+                }
+
+            }
+
+          }
+
+        .filter-form-button{
+            width: 10%;
+            margin:$gutter / 8;
+        }
+        
+    }
+}
