@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import Loader from 'src/components/Loader';
@@ -19,10 +19,13 @@ const LoginForm = ({
     setLoadingFalse();
   }, []);
 
+  const [isSubmit, setIsSubmit] = useState(false);
+  
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
     setLoadingTrue();
+    setIsSubmit(true);
   };
 
   return (
@@ -34,7 +37,6 @@ const LoginForm = ({
             <Redirect to="/" />
           )}
           {!isLogged && (
-
             <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
 
               <h1 className="login-title">Connexion</h1>
@@ -63,25 +65,19 @@ const LoginForm = ({
               <p className="login-redirect">
                 Mot de passe oublié ? <Link to="/mot-de-passe-oublie" className="login-redirect-link">Réinitialiser le mot de passe</Link>
               </p>
-              <div>
-                {isLogged && (
-                  <p className="reservation-redirect-ok">
-                    Vous êtes connecté,  <Link to="*" className="reservation-redirect-link-ok">Retour à l'accueil</Link>
+
+              {isSubmit && !isLogged && (
+                <div className="register-redirect-nop">
+                  <p>
+                    Une erreur est survenue , merci de vérifier :
                   </p>
-                )}
-                {isLogged && (
-                  <div className="register-redirect-nop">
-                    <p>
-                      Une erreur est survenue , merci de vérifier :
-                    </p>
-                    <ul className="register-redirect-nop-ul">
-                      <li>- Votre email</li>
-                      <li>- Votre mot de passe</li>
-                      <li>- Que votre compte existe</li>
-                    </ul>
-                  </div>
-                )}
-              </div>
+                  <ul className="register-redirect-nop-ul">
+                    <li>- Votre email</li>
+                    <li>- Votre mot de passe</li>
+                    <li>- Que votre compte existe</li>
+                  </ul>
+                </div>
+              )}
             </form>
           )}
         </div>

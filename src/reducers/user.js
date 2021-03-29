@@ -47,6 +47,7 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: false,
+        loading: false,
       };
 
     case SAVE_REGISTER:

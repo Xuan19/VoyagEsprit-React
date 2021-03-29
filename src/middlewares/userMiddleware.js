@@ -10,6 +10,7 @@ import {
   saveUserInfo,
   HANDLE_PROFILE,
   saveMainTravelsFormInfo,
+  logOut,
 } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -33,6 +34,7 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           // console.log(error.response.data);
+          store.dispatch(logOut());
         })
         .finally(() => {
           // document.location.replace('/');

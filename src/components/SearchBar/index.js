@@ -111,6 +111,7 @@ const SearchBar = ({
         <ButtonStyled
           type="submit"
           className="form-button"
+          to="/destinations"
         >
           Rechercher
         </ButtonStyled>
