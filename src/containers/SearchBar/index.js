@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { handleFilter, changeField,changeDate } from '../../actions/travels';
+import { handleFilter, changeField, changeDate } from '../../actions/travels';
 import SearchBar from '../../components/SearchBar';
 
 const mapStateToProps = (state) => ({
@@ -17,8 +17,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     // nom de la prop à remplir: callback qui contient un appel à dispatch
-    changeField: (value, label) => {
-        dispatch(changeField(value, label));
+    changeField: (value, name) => {
+        dispatch(changeField(value, name));
     },
     changeDate: (startDate) => {
         dispatch(changeDate(startDate));

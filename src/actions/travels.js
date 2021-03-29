@@ -24,10 +24,10 @@ export const saveFormInfo = (formData) => ({
   formData,
 });
 
-export const changeField = (value, label) => ({
+export const changeField = (value, name) => ({
   type: CHANGE_FIELD,
   value,
-  label,
+  name,
 });
 
 export const changeDate = (startDate) => ({

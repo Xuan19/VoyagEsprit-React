@@ -19,11 +19,12 @@ const SearchBar = ({
   handleFilter,
   changeDate,
 }) => {
-  const handleChange = (value, { action }) => {
-    // console.log(value);
-    // console.log(action);
-    switch (action) {
-      case 'input-change':
+  const handleChange = (value, action) => {
+    // console.log(value.label);
+    // console.log(action.name);
+    // console.log(action.action);
+    switch (action.action) {
+      case 'select-option':
         changeField(value.label, action.name);
         break;
       case 'clear':
@@ -121,7 +122,7 @@ const SearchBar = ({
 SearchBar.propTypes = {
   listDestinations: PropTypes.array.isRequired,
   listCategories: PropTypes.array.isRequired,
-  startDate: PropTypes.string.isRequired,
+  startDate: PropTypes.instanceOf(Date).isRequired,
   changeField: PropTypes.func.isRequired,
   handleFilter: PropTypes.func.isRequired,
   changeDate: PropTypes.func.isRequired,

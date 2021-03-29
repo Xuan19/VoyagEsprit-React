@@ -34,7 +34,7 @@ const travelsReducer = (state = initialState, action = {}) => {
     case CHANGE_FIELD:
       return {
         ...state,
-        [action.value]: action.label,
+        [action.name]: action.value,
       };
 
     case CHANGE_DATE:
