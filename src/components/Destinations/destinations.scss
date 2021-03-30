@@ -2,48 +2,81 @@
 
 .destinations{
 
+  margin: $gutter;
+
     .filter-form{
-        display: flex;
-        margin: $gutter;
-        justify-content: center;
+        width: 25%;
+        position: absolute;
 
         .filter-form-input-category{
-            width: 16%;
-            height: 3rem;
-            margin:$gutter / 8;
+            // margin:$gutter / 8;
         }
 
         .filter-form-input-destination{
-            width: 25%;
-            margin:$gutter / 8;
+          margin-top:$gutter / 8;
         }
 
         .filter-form-input-date{
-            margin: $gutter / 8;  
-            width: 16%;           
-            .datePicker{
-                width: 100%;
-                .react-datepicker__input-container{        
-                    input{
-                        border: 1px solid #ced4da;
-                        border-radius: 5px;
-                        width: 100%;
-                        display:block;
-                        margin:auto;
-                        height: 3rem;
-                        color: hsl(0, 0%, 20%);
-                        padding: 3px 9px;
-                    }
-                }
-
-            }
-
+            margin-top: $gutter / 8;           
           }
 
         .filter-form-button{
-            width: 10%;
-            margin:$gutter / 8;
+            margin-top:$gutter / 8;
         }
         
     }
+
+    .travels {
+        margin-left: 25%;  
+        
+        .travels-small {
+          display: block;
+
+          .ui{
+              &.card{
+                width: 90%;
+                display: flex;
+                margin-left: $gutter;
+                // height: 8*$gutter;
+
+                .travel-carousel{
+                  width: 30%;
+                  // height: 100%;
+                  position: absolute;
+                }
+
+                .travel-small {
+                        margin-left: 30%;  
+                        .travel-small-content {
+                          padding: 3rem;
+                  
+                          h2 {
+                            font-weight: bold;
+                            font-size: 1.2em;
+                          }
+                  
+                          p {
+                            margin-top: 0.3em;
+                            margin-bottom: 0.3em;
+                          }
+                  
+                          a {
+                            color: $mainColor;
+                            cursor: pointer;
+                            &:hover {
+                              text-decoration: underline;
+                            }
+                          }
+                        }
+                  
+                        &.travel-small--favorite {
+                          border-color: $mainColor;
+                        }
+                      }
+              }
+              
+            }
+     
+        }
+      }
 }

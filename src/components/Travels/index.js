@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TravelSmall from './TravelSmall';
-import './travels.scss';
 
 const Travels = ({ mainTravels }) => (
   <main className="travels">

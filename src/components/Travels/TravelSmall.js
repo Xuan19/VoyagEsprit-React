@@ -23,10 +23,12 @@ const TravelSmall = ({
   };
 
   return (
-    <Card className="travel-small">
-      <Carousel showThumbs={false}>
-        {image.map((img) => <Image src={`http://localhost:8000/assets/images/${img}`} wrapped ui={false} key={img} />)}
-      </Carousel>
+    <Card>
+      <div className="travel-carousel">
+        <Carousel showThumbs={false}>
+          {image.map((img) => <img src={`http://localhost:8000/assets/images/${img}`} key={img} alt="" />)}
+        </Carousel>
+      </div>
       <article className={cssClass}>
         <div className="travel-small-content">
           <h2>{name}</h2>

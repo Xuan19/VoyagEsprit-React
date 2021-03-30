@@ -20,7 +20,6 @@ const LoginForm = ({
   }, []);
 
   const [isSubmit, setIsSubmit] = useState(false);
-  
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();

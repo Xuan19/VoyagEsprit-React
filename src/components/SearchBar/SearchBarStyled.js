@@ -1,16 +1,18 @@
 // import styled from '@emotion/styled';
+import styled, { createGlobalStyle } from 'styled-components';
 import ReactSelect from 'react-select';
-import styled from 'styled-components';
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.input`
   padding: 3px 9px;
   font-family: sans-serif;
-  background-color: #cce2ff;
-  font-size: 20px;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
   border: 1px solid #ced4da;
+  background-color: #cce2ff;
   border-radius: 4px;
+  text-decoration: none;
   color: rgba(0,0,0,.87);
-  // font-weight: bold;
   height: 3rem;
   &:hover {
     color: hsl(0, 0%, 20%);
@@ -19,7 +21,6 @@ export const ButtonStyled = styled.button`
 
 export const CategorySelect = styled(ReactSelect)`
   &.react-select-container  {
-    // justify-content: center;
     .react-select__control{
       .react-select__value-container{
           height: 3rem;
@@ -29,7 +30,6 @@ export const CategorySelect = styled(ReactSelect)`
       .react-select__menu-list{
         background-color: white;
         .react-select__option{
-            // background-color: white;
           }
       }
     }
@@ -38,7 +38,6 @@ export const CategorySelect = styled(ReactSelect)`
 
 export const DestinationSelect = styled(ReactSelect)`
   &.react-select-container  {
-    // width: 100%;
     .react-select__control{
       .react-select__value-container{
           height: 3rem;
@@ -48,9 +47,26 @@ export const DestinationSelect = styled(ReactSelect)`
       .react-select__menu-list{
         background-color: white;
         .react-select__option{
-            // background-color: white;
           }
       }
     }
   }
+`;
+
+export const DatePickerWrapperStyles = createGlobalStyle`
+ .datePicker {
+  width: 100%; 
+  .react-datepicker__input-container{        
+      input{
+          border: 1px solid #ced4da;
+          border-radius: 5px;
+          width: 100%;
+          display:block;
+          margin:auto;
+          height: 3rem;
+          color: hsl(0, 0%, 20%);
+          padding: 3px 9px;
+      }
+  }
+}
 `;
