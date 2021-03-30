@@ -1,6 +1,7 @@
 import React from 'react';
 import './header.scss';
 import logo from 'src/assets/logo.png';
+// import bgImg from 'src/assets/header.jpg';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -14,7 +15,7 @@ const Header = ({ logOut, isLogged }) => {
   return (
     <div className="header">
       {/* <img src={logo} alt="logo" to="/" /> */}
-      <Link className="logo" to="/"><img src={logo} alt="logo" /></Link>
+      <div className="logo"><Link to="/"><img src={logo} alt="logo" /></Link></div>
       <div className="navigation-login-content">
         {isLogged && (<Link className="navigation-login" to="/Profile">Profile</Link>)}
         {!isLogged && (<Link className="navigation-login" to="/connexion">Connexion</Link>)}

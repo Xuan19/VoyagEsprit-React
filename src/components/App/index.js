@@ -36,7 +36,7 @@ const App = ({ fetchMainTravelsFormInfo, loading, checkLogged }) => {
           <Route
             path="/destinations"
           >
-            <Destinations />
+            <Destinations loading={loading} />
           </Route>
 
           <Route

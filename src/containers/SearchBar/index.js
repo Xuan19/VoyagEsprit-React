@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { handleFilter, changeField, changeDate } from '../../actions/travels';
+import { handleFilter, changeField, changeDate, setLoadingTrue } from '../../actions/travels';
 import SearchBar from '../../components/SearchBar';
 
 const mapStateToProps = (state) => ({
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
     destination: state.travels.destination,
     category: state.travels.category,
     startDate: state.travels.startDate,
+    loading: state.travels.loading,
     // startCity: state.travels.startCity,
 
 });
@@ -26,6 +27,9 @@ const mapDispatchToProps = (dispatch) => ({
     handleFilter: () => {
         dispatch(handleFilter());
     },
+    setLoadingTrue: () => {
+        dispatch(setLoadingTrue());
+    }
 });
 
 export default connect(

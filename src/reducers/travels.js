@@ -1,7 +1,15 @@
-import { SAVE_MAIN_TRAVELS_FORM_INFO, SAVE_FILTERED_INFO, CHANGE_FIELD, CHANGE_DATE } from '../actions/travels';
+import {
+  SAVE_MAIN_TRAVELS_FORM_INFO,
+  SAVE_FILTERED_INFO,
+  CHANGE_FIELD,
+  CHANGE_DATE,
+  SET_LOADING_TRUE,
+
+} from '../actions/travels';
 
 const initialState = {
   listTravels: [],
+  listMainTravels: [],
   // indique si on affiche le loader
   loading: true,
   listDestinations: [],
@@ -19,7 +27,7 @@ const travelsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: false,
-        listTravels: action.data.mainTravels,
+        listMainTravels: action.data.mainTravels,
         listDestinations: action.data.formInfo.destinations,
         listCategories: action.data.formInfo.categories,
       };
@@ -47,6 +55,13 @@ const travelsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         listTravels: action.filteredData,
+        loading: false,
+      };
+
+    case SET_LOADING_TRUE:
+      return {
+        ...state,
+        loading: true,
       };
 
     default: return state;

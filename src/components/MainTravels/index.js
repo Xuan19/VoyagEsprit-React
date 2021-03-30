@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TravelSmall from './TravelSmall';
 
-const Travels = ({ travels }) => (
+const MainTravels = ({ mainTravels }) => (
   <main className="travels">
     <div className="travels-small">
-      {travels.map((travel) => (
+      {mainTravels.map((travel) => (
         <TravelSmall key={travel.id} {...travel} />
       ))}
     </div>
   </main>
 );
 
-Travels.propTypes = {
-  travels: PropTypes.arrayOf(
+MainTravels.propTypes = {
+  mainTravels: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };
 
-export default Travels;
+export default MainTravels;

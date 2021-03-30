@@ -6,6 +6,8 @@ export const SAVE_FILTERED_INFO = 'SAVE_FILTERED_INFO';
 export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const CHANGE_DATE = 'CHANGE_DATE';
 export const FILTER = 'FILTER';
+export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
 
 export const fetchMainTravelsFormInfo = () => ({
   type: FETCH_MAIN_TRAVELS_FORM_INFO,
@@ -42,4 +44,12 @@ export const handleFilter = () => ({
 export const saveFilteredInfo = (filteredData) => ({
   type: SAVE_FILTERED_INFO,
   filteredData,
+});
+
+export const setLoadingFalse = () => ({
+  type: SET_LOADING_FALSE,
+});
+
+export const setLoadingTrue = () => ({
+  type: SET_LOADING_TRUE,
 });

@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import fr from 'date-fns/esm/locale/fr';
+import Loader from 'src/components/Loader';
 import {
   ButtonStyled,
   CategorySelect,
@@ -23,6 +24,7 @@ const SearchBar = ({
   changeDate,
   category,
   destination,
+  setLoadingTrue,
 }) => {
   const handleChange = (value, action) => {
     switch (action.action) {
@@ -42,21 +44,25 @@ const SearchBar = ({
   const [isSubmit, setIsSubmit] = useState(false);
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleFilter();
     setIsSubmit(true);
+    handleFilter();
   };
 
-  const dataDestination = listDestinations.map((destination) => (
+  if (isSubmit) {
+    setLoadingTrue();
+  }
+
+  const dataDestination = listDestinations.map((item) => (
     {
       value: 'destination',
-      label: destination.countryName,
+      label: item.countryName,
     }
   ));
 
-  const dataCategory = listCategories.map((category) => (
+  const dataCategory = listCategories.map((item) => (
     {
       value: 'category',
-      label: category.name,
+      label: item.name,
     }
   ));
 
@@ -66,8 +72,9 @@ const SearchBar = ({
 
   return (
     <div>
+      {/* {loading && <Loader />} */}
       {isSubmit && <Redirect to="/destinations" />}
-      <form action="" className="filter-form" onSubmit={handleSubmit}>
+      <form action="/destinations" className="filter-form" onSubmit={handleSubmit} target="_blank" method="POST">
         <div className="filter-form-input-category">
           <CategorySelect
             options={dataCategory}
@@ -130,6 +137,8 @@ SearchBar.propTypes = {
   changeDate: PropTypes.func.isRequired,
   destination: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
+  setLoadingTrue: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default SearchBar;
