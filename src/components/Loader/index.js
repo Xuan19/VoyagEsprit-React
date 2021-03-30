@@ -1,29 +1,7 @@
 import React from 'react';
-
-import './loader.scss';
+import { LoopCircleLoading } from 'react-loadingg';
 
 const Loader = () => (
-  <>
-    <div className="loader">
-      <div className="loader-inner">
-        <div className="loader-line-wrap">
-          <div className="loader-line"></div>
-        </div>
-        <div className="loader-line-wrap">
-          <div className="loader-line"></div>
-        </div>
-        <div className="loader-line-wrap">
-          <div className="loader-line"></div>
-        </div>
-        <div className="loader-line-wrap">
-          <div className="loader-line"></div>
-        </div>
-        <div className="loader-line-wrap">
-          <div className="loader-line"></div>
-        </div>
-      </div>
-    </div>
-  </>
+  <LoopCircleLoading />
 );
-
 export default Loader;
