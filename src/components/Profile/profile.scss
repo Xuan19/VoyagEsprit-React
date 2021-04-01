@@ -1,9 +1,7 @@
 @import 'src/styles/vars';
 
 .profile{
-
     .profile-redirect-content{
-
         text-align: center;
         margin: 5% auto 40% auto;
 
@@ -20,9 +18,11 @@
     }
 
     .profile-container{
-
         width:50%;
-        margin: $gutter*3 auto;
+        margin: $gutter*3;
+        // justify-content: center;
+        margin-left: 25%;
+        
 
         h2{
             font-size: 2.5rem;
@@ -87,6 +87,9 @@
         }
     
         .profile-input-form{
+
+            // display: block;
+            justify-content: center;
     
             .profile-data{
     
@@ -96,6 +99,7 @@
     
                 .profile-data-label{
                     width: 20%;
+                    margin-right: 1rem;
                     .form-fied-label{
                         font-weight: 700;
                         font-size: 15px;
@@ -128,46 +132,17 @@
                         background: #f0f0f0;
                     }
                 }
-
-                .profile-data-input-email{
-                    width: 80%;
-                    
-                    input{
-                        border: solid 1px #cfcfcf;
-                        height: auto;
-                        line-height: normal;
-                        padding: 8px 10px;
-                        -moz-border-radius: 2px;
-                        -webkit-border-radius: 2px;
-                        border-radius: 2px;
-                        font-family: inherit;
-                        font-size: inherit;
-                        letter-spacing: normal;
-                        word-spacing: normal;
-                        text-transform: none;
-                        text-indent: 0px;
-                        text-shadow: none;
-                        display: inline-block;
-                        text-align: start;
-                        width: 100%;
-                        background: #a5a5a5a8;
-                    }
-                }
             }
     
             .profile-button{
+                // justify-content: center;
                 text-align: center;
-                button{
-                    color: #fff;
-                    background-color: #0277bd;
-                    border-color: #0277bd;
-                    font-family: sans-serif;
-                    font-size: 100%;
-                    line-height: 1.15;
-                    margin: 1px;
-                }
+                width: 30%;
+                margin-left: 35%;
             }
+            
         }
+
     }
 
 }

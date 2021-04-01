@@ -6,6 +6,8 @@ import {
   SAVE_USER_INFO,
   SET_LOADING_TRUE,
   SET_LOADING_FALSE,
+  SET_IS_SUBMIT,
+  CHANGE_DATE,
 } from '../actions/user';
 
 const initialState = {
@@ -24,6 +26,7 @@ const initialState = {
   loading: true,
   birthday: '',
   phoneNumber: '',
+  isSubmit: false,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -80,6 +83,18 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: false,
+      };
+
+    case SET_IS_SUBMIT:
+      return {
+        ...state,
+        isSubmit: true,
+      };
+
+    case CHANGE_DATE:
+      return {
+        ...state,
+        birthday: action.date,
       };
 
     default: return state;

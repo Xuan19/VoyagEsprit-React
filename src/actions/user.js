@@ -11,6 +11,8 @@ export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
 export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
+export const SET_IS_SUBMIT = 'SET_IS_SUBMIT';
+export const CHANGE_DATE = 'CHANGE_DATE';
 
 export const changeField = (newValue, identifier) => ({
   type: CHANGE_FIELD,
@@ -63,4 +65,13 @@ export const setLoadingFalse = () => ({
 
 export const setLoadingTrue = () => ({
   type: SET_LOADING_TRUE,
+});
+
+export const setIsSubmit = () => ({
+  type: SET_IS_SUBMIT,
+});
+
+export const changeDate = (date) => ({
+  type: CHANGE_DATE,
+  date,
 });

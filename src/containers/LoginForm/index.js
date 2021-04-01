@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 
 import LoginForm from 'src/components/LoginForm';
 
-import { changeField, logIn, logOut, setLoadingFalse, setLoadingTrue } from 'src/actions/user';
+import { changeField, logIn, logOut, setLoadingFalse, setIsSubmit } from 'src/actions/user';
+import { setLoadingTrue } from 'src/actions/travels';
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
@@ -25,6 +26,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   setLoadingTrue: () => {
     dispatch(setLoadingTrue());
+  },
+
+  setIsSubmit: () => {
+    dispatch(setIsSubmit());
   },
   handleLogout: () => {
     dispatch(logOut());

@@ -5,9 +5,11 @@ import { Route } from 'react-router-dom';
 // == Import
 import Home from 'src/components/Home';
 import Travel from 'src/containers/Travel';
+import Contact from 'src/components/Contact';
 import Loader from 'src/components/Loader';
 import Destinations from 'src/components/Destinations';
 import Header from 'src/containers/Header';
+import Footer from 'src/components/Footer';
 import LoginForm from 'src/containers/LoginForm';
 import Registration from 'src/containers/Registration';
 import Profile from 'src/containers/Profile';
@@ -30,7 +32,7 @@ const App = ({ fetchMainTravelsFormInfo, loading, checkLogged }) => {
             path="/"
             exact
           >
-            <Home />
+            <Home loading={loading} />
           </Route>
 
           <Route
@@ -61,6 +63,10 @@ const App = ({ fetchMainTravelsFormInfo, loading, checkLogged }) => {
             <Profile />
           </Route>
 
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Footer />
         </>
       )}
     </div>

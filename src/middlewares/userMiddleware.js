@@ -155,12 +155,13 @@ const userMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           // console.log(response);
+          document.location.replace('/');
           store.dispatch(saveUserInfo(
             response.data,
           ));
         })
         .catch((error) => {
-          // console.log(error.response.data);
+          console.log(error.response.data);
           document.location.replace('/connexion');
         });
 

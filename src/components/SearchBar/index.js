@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import fr from 'date-fns/esm/locale/fr';
 import Loader from 'src/components/Loader';
+import 'react-datepicker/dist/react-datepicker.css';
 import {
   ButtonStyled,
   CategorySelect,
   DestinationSelect,
   DatePickerWrapperStyles,
 } from './SearchBarStyled';
-import 'react-datepicker/dist/react-datepicker.css';
 
 registerLocale('fr', fr);
 
@@ -74,7 +74,7 @@ const SearchBar = ({
     <div>
       {/* {loading && <Loader />} */}
       {isSubmit && <Redirect to="/destinations" />}
-      <form action="/destinations" className="filter-form" onSubmit={handleSubmit} target="_blank" method="POST">
+      <form action="" className="filter-form" onSubmit={handleSubmit} target="">
         <div className="filter-form-input-category">
           <CategorySelect
             options={dataCategory}

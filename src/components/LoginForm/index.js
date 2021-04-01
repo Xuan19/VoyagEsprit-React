@@ -12,7 +12,6 @@ const LoginForm = ({
   handleLogin,
   isLogged,
   setLoadingFalse,
-  setLoadingTrue,
   loading,
 }) => {
   useEffect(() => {
@@ -23,7 +22,6 @@ const LoginForm = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
-    setLoadingTrue();
     setIsSubmit(true);
   };
 
@@ -65,7 +63,7 @@ const LoginForm = ({
                 Mot de passe oublié ? <Link to="/mot-de-passe-oublie" className="login-redirect-link">Réinitialiser le mot de passe</Link>
               </p>
 
-              {isSubmit && !isLogged && (
+              {isSubmit && (
                 <div className="register-redirect-nop">
                   <p>
                     Une erreur est survenue , merci de vérifier :
@@ -92,7 +90,7 @@ LoginForm.propTypes = {
   handleLogin: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
   setLoadingFalse: PropTypes.func.isRequired,
-  setLoadingTrue: PropTypes.func.isRequired,
+  // setLoadingTrue: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 

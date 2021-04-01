@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 import { GetFormattedDateUserInfo, DateIsNoNul, transfomrNoNull } from 'src/utils';
 import Loader from 'src/components/Loader';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import fr from 'date-fns/esm/locale/fr';
 import NavDashboard from './NavDashboard';
 import './profile.scss';
 import Field from './Field';
+import { DatePickerWrapperStyles, ButtonStyled } from './ProfilStyled';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Profile = ({
   fetchUserInfo,
@@ -21,17 +25,24 @@ const Profile = ({
   phoneNumber,
   handleProfile,
   changeField,
+  changeDate,
   setLoadingTrue,
 }) => {
+  registerLocale('fr', fr);
+
   useEffect(() => {
     fetchUserInfo();
-    setLoadingTrue();
+    // setLoadingTrue();
   }, []);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleProfile();
-    setLoadingTrue();
+    // setLoadingTrue();
+  };
+
+  const handleDateChange = (evt) => {
+    changeDate(evt);
   };
 
   return (
@@ -68,14 +79,43 @@ const Profile = ({
                   onChange={changeField}
                   value={email}
                 />
-                <Field
+                {/* <Field
                   name="birthday"
                   label="Date de naissance"
                   onChange={changeField}
                   // value={GetFormattedDateUserInfo(birthday)}
                   value={birthday}
                   placeholder="jj-mm-aaaa"
-                />
+                /> */}
+
+                <div className="profile-data">
+                  <div className="profile-data-label">
+                    <label
+                      // htmlFor={inputId}
+                      className="form-fied-label">
+                      Date de Naissance
+                      <span className="required-indicator">*</span>
+                    </label>
+                  </div>
+                  <div className="profile-data-input">
+                    <DatePicker
+                      name="birthday"
+                      // selected={birthday ? `${birthday}` : ''}
+                      value={birthday ? `${GetFormattedDateUserInfo(birthday)}` : ''}
+                      onChange={handleDateChange}
+                      // className="react-datepicker-wrapper"
+                      wrapperClassName="datePicker"
+                      // dateFormat="d MMMM,yyyy"
+                      maxDate={new Date()}
+                      // todayButton="Today"
+                      showYearDropdown
+                      yearDropdownItemNumber={10}
+                      placeholderText="Date de Naissance"
+                      locale="fr"
+                    />
+                  </div>
+                </div>
+                <DatePickerWrapperStyles />
                 <Field
                   name="phoneNumber"
                   type="tel"
@@ -85,13 +125,10 @@ const Profile = ({
                   placeholder="06XXXXXXXX"
                 />
                 <div className="profile-button">
-                  <button type="submit" className="btn-custom-button-white-save-button-primary" title="Sauvegarder">
-                    <div className="button-content">
-                      <span className="text">
-                        Sauvegarder
-                      </span>
-                    </div>
-                  </button>
+                  <ButtonStyled
+                    type="submit"
+                    value="Sauvegarder"
+                  />
                 </div>
               </form>
             </div>
@@ -106,7 +143,7 @@ Profile.propTypes = {
   email: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
-  birthday: PropTypes.string.isRequired,
+  birthday: PropTypes.instanceOf(Date).isRequired,
   phoneNumber: PropTypes.string.isRequired,
   // password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
@@ -115,6 +152,7 @@ Profile.propTypes = {
   handleProfile: PropTypes.func.isRequired,
   fetchUserInfo: PropTypes.func.isRequired,
   setLoadingTrue: PropTypes.func.isRequired,
+  changeDate: PropTypes.func.isRequired,
 };
 
 export default Profile;

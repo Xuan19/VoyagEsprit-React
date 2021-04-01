@@ -4,6 +4,7 @@ import {
   CHANGE_FIELD,
   CHANGE_DATE,
   SET_LOADING_TRUE,
+  SET_LOADING_FALSE,
 
 } from '../actions/travels';
 
@@ -62,6 +63,12 @@ const travelsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: true,
+      };
+
+    case SET_LOADING_FALSE:
+      return {
+        ...state,
+        loading: false,
       };
 
     default: return state;

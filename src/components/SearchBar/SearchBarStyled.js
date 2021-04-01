@@ -67,6 +67,12 @@ export const DatePickerWrapperStyles = createGlobalStyle`
           color: hsl(0, 0%, 20%);
           padding: 3px 9px;
       }
-  }
+ 
+      
+        // .react-datepicker__close-icon::before,
+        // .react-datepicker__close-icon::after {
+        //   background-color: grey;
+        //   }
+    }
 }
 `;
