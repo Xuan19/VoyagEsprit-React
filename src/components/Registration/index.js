@@ -88,7 +88,10 @@ const Registration = ({
         </div>
         <ReCAPTCHA
           className="ReCAPTCHA"
+          // style={{ display: 'inline-block' }}
+          style={{ transform: 'scale(0.77)' }}
           sitekey="6LekdgAVAAAAAE0Oc1rd2KkpPCMprHY7cDzEtngU"
+          // size="normal"
           onChange={() => {
             setRecaptchaValide(true);
           }}
@@ -116,7 +119,7 @@ const Registration = ({
       <p className="register-redirect">
         Déjà inscrit ? <Link to="/connexion" className="register-redirect-link">Connectez-vous</Link>
       </p>
-    </main>
+    </main >
   );
 };
 

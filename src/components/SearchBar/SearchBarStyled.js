@@ -58,14 +58,14 @@ export const DatePickerWrapperStyles = createGlobalStyle`
   width: 100%; 
   .react-datepicker__input-container{        
       input{
-          border: 1px solid #ced4da;
-          border-radius: 5px;
+          border: 0.1px solid hsl(0, 0%, 80%);
+          border-radius: 4px;
           width: 100%;
           display:block;
           margin:auto;
           height: 3rem;
           color: hsl(0, 0%, 20%);
-          padding: 3px 9px;
+          padding: 0px 9px;
       }
  
       

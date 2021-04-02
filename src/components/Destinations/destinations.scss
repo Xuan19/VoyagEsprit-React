@@ -69,3 +69,76 @@
         }
   }
 }
+@media (max-width: 768px){
+  .destinations{
+    justify-content: center;
+    display: block;
+  
+    .destinations-container{
+      margin: 2%;
+      display: block;
+      width: 96%;
+      justify-content: center;
+     
+      .form{
+         width: 100%;
+        //  position: absolute;
+    
+      .filter-form{ 
+        width: 100%;
+            .filter-form-input-category{
+                margin:0rem;
+            }
+    
+            .filter-form-input-destination{
+              margin-top:0rem;
+            }
+    
+            .filter-form-input-date{
+              margin-top:0rem;           
+              }
+    
+            .filter-form-button{
+              margin-top:0rem;
+            }
+            
+        }
+      }
+
+      .travels {    
+        width: 100%;
+        // display: flex;
+        // justify-content: flex-start;
+            .travels-small {
+              width: 100%;
+              display: block;
+              
+              .ui{
+                  &.card{
+                    display: block;
+                    justify-content: center;
+                    margin: 1rem 0rem;
+                    width: 100%;
+                    border-radius: 1rem;
+                    .travel-carousel{
+                      width: 100%;
+                      position: relative;
+                    }
+    
+                    .travel-small {
+                            margin: 0%;  
+                      
+                            &.travel-small--favorite {
+                              border-color: $mainColor;
+                            }
+                          }
+                  }
+                  
+                }
+         
+            }
+          }
+    
+    }
+  }
+}

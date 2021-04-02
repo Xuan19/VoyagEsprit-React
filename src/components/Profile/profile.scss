@@ -311,38 +311,30 @@
     }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
     .profile{
 
-        .dashboard-header{    
+        .profile-redirect-content{
             text-align: center;
-            width: 100%;
-            padding: 0;
-            color: $light-color;
-            background-color: $dark-color;
+            margin: 5% auto 40% auto;
     
-            .dashboard-navigation{
-
-                display: flex;
-                flex-direction: column;
-                padding: $gutter;
-                margin: 0;
+            .profile-redirect-title{
+                font-size: $gutter;
+                margin-bottom: $gutter;
+            }
     
-                .dashboard-navigation-link{
-                    margin: 0;
-                    font-size: $gutter;
-    
-                    &:hover{
-                        color: $alt-color;
-                    }
-                }
+            .profile-redirect-link{
+                font-size: $gutter;
+                margin-bottom: $gutter;
+                color: $primary-color;
             }
         }
-
-        .profile-containet{
-
-            width: 100%;
-            margin: $gutter*3 auto;
+    
+        .profile-container{
+            width:94%;
+            margin: 1rem 3%;
+            // justify-content: center;
+            // margin-left: 0%;
     
             h2{
                 font-size: 2.5rem;
@@ -353,7 +345,6 @@
             }
         
             .profile-image-form{
-        
                 min-height: 130px;
                 max-height: 166px;
                 display: block;
@@ -399,6 +390,7 @@
                     height: 100px;
             
                     & img{
+                        border: solid 1px #cfcfcf;
                         width: 100px;
                         height: 100px;
                         border-radius: 50%;
@@ -407,15 +399,20 @@
             }
         
             .profile-input-form{
+    
+                // display: block;
+                // justify-content: center;
         
                 .profile-data{
         
                     display: block;
-                    margin: $gutter;
+                    margin:1rem;
                     align-items: center;
+                    justify-content: center;
         
                     .profile-data-label{
                         width: 100%;
+                        margin-right: 0rem;
                         .form-fied-label{
                             font-weight: 700;
                             font-size: 15px;
@@ -451,18 +448,15 @@
                 }
         
                 .profile-button{
+                    // justify-content: center;
                     text-align: center;
-                    button{
-                        color: #fff;
-                        background-color: #0277bd;
-                        border-color: #0277bd;
-                        font-family: sans-serif;
-                        font-size: 100%;
-                        line-height: 1.15;
-                        margin: 1px;
-                    }
+                    width: 40%;
+                    margin-left: 30%;
                 }
+                
             }
+    
         }
+    
     }
 }
