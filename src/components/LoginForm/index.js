@@ -12,6 +12,7 @@ const LoginForm = ({
   handleLogin,
   isLogged,
   setLoadingFalse,
+  setLoadingTrue,
   loading,
 }) => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const LoginForm = ({
     evt.preventDefault();
     handleLogin();
     setIsSubmit(true);
+    setLoadingTrue();
   };
 
   return (

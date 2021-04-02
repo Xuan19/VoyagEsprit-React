@@ -38,7 +38,7 @@ const Profile = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleProfile();
-    // setLoadingTrue();
+    setLoadingTrue();
   };
 
   const handleDateChange = (evt) => {
@@ -76,7 +76,7 @@ const Profile = ({
                 <Field
                   name="email"
                   label="Adresse email"
-                  onChange={changeField}
+                  // onChange={changeField}
                   value={email}
                 />
                 {/* <Field
@@ -109,8 +109,9 @@ const Profile = ({
                       maxDate={new Date()}
                       // todayButton="Today"
                       showYearDropdown
-                      yearDropdownItemNumber={10}
-                      placeholderText="Date de Naissance"
+                      scrollableYearDropdown
+                      yearDropdownItemNumber={80}
+                      placeholderText="Click pour choisir"
                       locale="fr"
                     />
                   </div>

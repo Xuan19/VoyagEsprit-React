@@ -10,7 +10,7 @@ const Destinations = ({ loading }) => (
   <main className="destinations">
     {loading && <Loader />}
     {!loading && (
-      <div>
+      <div className="destinations-container">
         <SearchBar />
         <Travels />
       </div>

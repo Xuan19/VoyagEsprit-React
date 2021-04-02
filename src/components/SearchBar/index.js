@@ -71,7 +71,7 @@ const SearchBar = ({
   ];
 
   return (
-    <div>
+    <div className="form">
       {/* {loading && <Loader />} */}
       {isSubmit && <Redirect to="/destinations" />}
       <form action="" className="filter-form" onSubmit={handleSubmit} target="">

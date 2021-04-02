@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TravelSmall from './TravelSmall';
+import TravelSmall from '../TravelSmall';
 
 const Travels = ({ travels }) => (
   <main className="travels">

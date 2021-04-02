@@ -54,7 +54,7 @@ const Highlight = ({
           <div className="activity-location">
 
             {cities.map((city) => (
-              <strong className="location" key={city.id}> {city.name} </strong>
+              <strong className="location" key={city.id}> {city.country.countryName} </strong>
             ))}
 
           </div>

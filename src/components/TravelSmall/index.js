@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { GetFormattedDate, slugifyTitle } from 'src/utils';
 import { Rating, Card, Image } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
+import { TravelSmallStyles } from './TravelSmallStyled';
 
 const TravelSmall = ({
   id,
@@ -31,20 +32,40 @@ const TravelSmall = ({
       </div>
       <article className={cssClass}>
         <div className="travel-small-content">
-          <h2>{name}</h2>
-          <p>baseline: {baseline}</p>
-          <p>Price: {price}</p>
+          <div className="activity-name-price">
+            <div className="activity-name">
+              <h2>{name}</h2>
+            </div>
+            <div className="activity-price">
+              <div className="activity-price-prefix">
+                <strong>
+                  A partir de
+            </strong>
+              </div>
+              <div className="activity-price-amount">
+                <strong>
+                  <span id="printed-price">{price} €</span>
+                </strong>
+              </div>
+            </div>
+          </div>
+          <div className="activity-location">
+            {cities.map((city) => (
+              <strong className="location" key={city.id}> {city.country.countryName} </strong>
+            ))}
+          </div>
+          <div className="activity-baseline">
+            <p>{baseline}</p>
+          </div>
           <div className="activity-date">
             <strong className="date"> Date : </strong>
             {`du ${GetFormattedDate(dates[0].startAt)} au ${GetFormattedDate(dates[0].endAt)}`}
           </div>
-          <div className="activity-location">
-
-            {cities.map((city) => (
-              <strong className="location" key={city.id}> {city.name} </strong>
-            ))}
-
+          <div className="activity-duration">
+            <strong className="duration">Durée : </strong>
+            {`${Math.floor((new Date(dates[0].endAt) - new Date(dates[0].startAt)) / (24 * 3600 * 1000)) + 1} jours`}
           </div>
+
           <div className="ui-star-rating" role="radiogroup" tabIndex="-1">
             <Rating icon="star" defaultRating={averageRating} maxRating={5} size="huge" disabled />
           </div>
@@ -55,6 +76,7 @@ const TravelSmall = ({
             Voir les détails
           </Link>
         </div>
+        <TravelSmallStyles />
       </article>
     </Card>
   );

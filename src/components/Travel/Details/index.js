@@ -26,10 +26,12 @@ const Details = ({
         </TabList>
 
         <TabPanel className="tabpanel">
-          <h2>Description</h2>
+          <h2 className="title">DESCRIPTION</h2>
           <p>{baseline}</p>
-          <h2>Programme</h2>
-          <p>{program}</p>
+          <h2 className="title">PROGRAMME</h2>
+          <p className="description">
+            {program}
+          </p>
         </TabPanel>
 
         <TabPanel className="tabpanel">

@@ -1,38 +1,40 @@
 @import 'src/styles/vars';
 
 .home{
-  margin-left:10%;
-  margin-right:10%;
+  width: 80%;
+  margin-left: 10%;
+  .form{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 5%;
 
-    .filter-form{
-        display: flex;
-        margin: $gutter;
-        justify-content: center;
-        
+   .filter-form{
+      display: flex;
+      justify-content: space-between;
+                
         .filter-form-input-category{
-            width: 17%;
+            width: 25%;
             height: 3rem;
-            margin:$gutter / 8;
         }
 
         .filter-form-input-destination{
-            width: 25%;
-            margin:$gutter / 8;
+            width: 30%;
         }
 
         .filter-form-input-date{
-            margin: $gutter / 8;  
-            width: 16%;           
+            width: 20%;           
           }
 
         .filter-form-button{
-            width: 10%;
-            margin:$gutter / 8;
+            width: 18%;
         }
         
-    }
+    } 
+  }
+  
 
     .travels {
+      margin: $gutter;
         .travels-small {
           display: flex;
           flex-flow: wrap;
@@ -47,27 +49,32 @@
             
             // border: 1px solid #CCC;
                
-            .travel-small-content {
-              padding: 1rem;
+            // .travel-small-content {
+            //   padding: 1rem;
       
-              h2 {
-                font-weight: bold;
-                font-size: 1.2em;
-              }
+            //   h2 {
+            //     font-weight: bold;
+            //     font-size: 1.2em;
+            //   }
       
-              p {
-                margin-top: 0.3em;
-                margin-bottom: 0.3em;
-              }
+            //   p {
+            //     margin-top: 0.3em;
+            //     margin-bottom: 0.3em;
+            //   }
+
+            //   .activity-location {
+            //     .activity-location{
+            //     }
+            //   }
       
-              a {
-                color: $mainColor;
-                cursor: pointer;
-                 &:hover {
-                   text-decoration: underline;
-                 }
-              }
-            }
+            //   a {
+            //     color: $mainColor;
+            //     cursor: pointer;
+            //      &:hover {
+            //        text-decoration: underline;
+            //      }
+            //   }
+            // }
       
             &.travel-small--favorite {
               border-color: $mainColor;

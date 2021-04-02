@@ -9,9 +9,9 @@ import {
   FETCH_USER_INFO,
   saveUserInfo,
   HANDLE_PROFILE,
-  saveMainTravelsFormInfo,
   logOut,
 } from 'src/actions/user';
+import { saveMainTravelsFormInfo, } from 'src/actions/travels';
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -31,6 +31,7 @@ const userMiddleware = (store) => (next) => (action) => {
             response.data,
           ));
           localStorage.setItem('token', response.data.token);
+          document.location.replace('/');
         })
         .catch((error) => {
           // console.log(error.response.data);
