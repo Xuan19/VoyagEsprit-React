@@ -3,11 +3,10 @@
 .main-zone-secondary-div{ 
 
     display: flex;
- 
     .top-left-col{
 
-        width: 547px;
-        height: 326px;
+        width: 50%;
+        // height: 326px;
 
         .activity-baseline{
            padding: 12px;
@@ -178,17 +177,17 @@
     
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
 
     .main-zone-secondary-div{ 
 
-        display: inline-block;
+        display: block;
         margin: 0rem auto;
      
         .top-left-col{
     
-            width: 350px;
-            height: 300px;
+            width: 100%;
+            height: 260px;
             margin: 0;
     
             .activity-baseline{
@@ -202,15 +201,15 @@
         }
     
         .top-right-col{
-    
-            padding-top:3*$gutter;
+            padding: 0rem;
+            padding-top:50%;
             padding-left: 0rem;
             padding-right: 0rem;
             color:$dark-color;
             font-size: 18px;
             font-weight: 400;
-            width: 90%;
-            margin-left: 1rem;
+            width: 100%;
+            margin-left: 0rem;
     
     
             .mains-infos-zone {
@@ -337,4 +336,165 @@
     }
 
 }
+
+@media only screen and (max-width: 320px) {
+
+    .main-zone-secondary-div{ 
+
+        display: block;
+        margin: 0rem auto;
+     
+        .top-left-col{
+    
+            width: 100%;
+            height: 260px;
+            margin: 0;
+    
+            .activity-baseline{
+               padding:12px;
+                font-family: 'Open Sans', Arial, sans-serif;
+                font-size: 25px;
+                font-weight: $title-font-weight;
+                color: $dark-color;
+            }
+    
+        }
+    
+        .top-right-col{
+            padding: 0rem;
+            padding-top:3*$gutter;
+            padding-left: 0rem;
+            padding-right: 0rem;
+            color:$dark-color;
+            font-size: 18px;
+            font-weight: 400;
+            width: 100%;
+            margin-left: 0rem;
+    
+    
+            .mains-infos-zone {
+                
+                .activity-infos-details{
+                    margin-bottom: $gutter;
+    
+                    .activity-price{
+                        font-family: 'Open Sans', Arial, sans-serif;
+                        margin-bottom: $gutter/2;
+                        align-items: center;
+                        display: flex;
+                        
+    
+                     .activity-price-prefix{
+                        display: block;
+                        font-size: 16px;
+                        line-height: 1.428571429;
+                        
+    
+                     }
+    
+                
+                     .activity-prices{
+                        display: flex;
+                        .activity-price-amount{
+                            color: #ffae3b;
+                            font-size: 24px;
+                            line-height: 24px;
+                            display: block;
+                            white-space: nowrap;
+                            padding-left: 10px;
+    
+                        }
+    
+                      .activity-price-based-on-nb-person{
+                        font-size: 14px;
+                        margin-top: 5px;
+                        margin-left: 8px;
+                        display: block;
+    
+                      }
+                     }
+    
+                    }
+    
+                    .activity-type{
+                        margin-bottom: $gutter/2;
+                        
+                                .type{
+                                    font-weight: bold;
+                                    
+                                        }
+                                    }
+    
+            .activity-location{
+                margin-bottom: $gutter/2;
+    
+                        .location{
+                            font-weight: bold;        
+                                }
+                        a {
+                            color: #ffae3b;
+                            font-weight: lighter;
+                            cursor: pointer;
+                            font-size: 14px;
+                            &:hover {
+                                text-decoration: underline;
+               }
+            
+                                }
+                            }
+                       
+                    
+                .activity-duration{
+    
+                    margin-bottom: $gutter/2;
+                    .duration{
+                        font-weight: bold;
+                    }
+    
+                }
+    
+                .activity-technical-level {
+    
+                    margin-bottom: $gutter;
+                    .level{
+                        font-weight: bolder;
+                    }
+    
+                }
+    
+                .activity-date {
+    
+                    margin-bottom: $gutter/2;
+    
+                    .date{
+                        font-weight: bolder;
+                    }
+                   
+    
+                }
+    
+                .button{
+    
+                    font-size: 16px;
+                    padding: 10px 10px;
+                    text-transform: none;
+                    background: #ffae3b;
+                    border: solid 1px #cfcfcf;
+                    border-color: #ffae3b;
+                    color: white;
+                    width: 100%;
+                    white-space: normal;
+                    font-family: 'Open Sans', Arial, sans-serif;
+                    font-weight: bold;
+                   
+                }
+                }
+            }
+            
+        }
+        
+    }
+
+}
+
 

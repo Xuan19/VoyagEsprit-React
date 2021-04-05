@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import './highlight.scss';
 import { Rating } from 'semantic-ui-react';
@@ -22,10 +22,11 @@ const Highlight = ({
       <div className="activity-baseline">
         {name}
       </div>
-      <Carousel>
-        {image.map((img) => <img src={`http://localhost:8000/assets/images/${img}`} alt="" />)}
-      </Carousel>
-
+      <div className="travel-carousel">
+        <Carousel>
+          {image.map((img) => <img src={`http://localhost:8000/assets/images/${img}`} alt="" />)}
+        </Carousel>
+      </div>
     </div>
     <div className="top-right-col">
       <div className="mains-infos-zone">

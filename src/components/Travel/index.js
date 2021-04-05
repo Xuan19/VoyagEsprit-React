@@ -13,7 +13,7 @@ const Travel = ({
     fetchTravel();
   }, []);
   return (
-    <main>
+    <div>
       {loading && <Loader />}
       {!loading && (
         <div className="travel">
@@ -21,7 +21,7 @@ const Travel = ({
           <Details {...travel} />
         </div>
       )}
-    </main>
+    </div>
   );
 };
 

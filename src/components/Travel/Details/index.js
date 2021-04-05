@@ -16,7 +16,7 @@ const Details = ({
   priceDetails,
 }) => (
 
-  <main className="main-zone-secondary-div">
+  <div className="main-zone-secondary-div">
     <div className="cpt-product-information">
       <Tabs className="tabs">
         <TabList className="tablist">
@@ -58,7 +58,7 @@ const Details = ({
       </Tabs>
 
     </div>
-  </main>
+  </div>
 );
 
 Details.propTypes = {
