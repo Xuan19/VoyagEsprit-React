@@ -8,6 +8,7 @@ import Travel from 'src/containers/Travel';
 import Contact from 'src/components/Contact';
 import Loader from 'src/components/Loader';
 import Destinations from 'src/components/Destinations';
+import Favoris from 'src/containers/Favoris';
 import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
 import LoginForm from 'src/containers/LoginForm';
@@ -39,6 +40,12 @@ const App = ({ fetchMainTravelsFormInfo, loading, checkLogged }) => {
             path="/destinations"
           >
             <Destinations loading={loading} />
+          </Route>
+
+          <Route
+            path="/favoris"
+          >
+            <Favoris />
           </Route>
 
           <Route

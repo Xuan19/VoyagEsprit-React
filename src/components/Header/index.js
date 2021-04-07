@@ -16,7 +16,9 @@ const Header = ({ logOut, isLogged }) => {
     <div className="header">
       {/* <img src={logo} alt="logo" to="/" /> */}
       <div className="logo"><Link to="/"><img src={logo} alt="logo" /></Link></div>
+      <div className="slogan">Voyager c'est la santé</div>
       <div className="navigation-login-content">
+        <Link className="navigation-login" to="/favoris">Favoris</Link>
         {isLogged && (<Link className="navigation-login" to="/Profile">Profile</Link>)}
         {!isLogged && (<Link className="navigation-login" to="/connexion">Connexion</Link>)}
         {isLogged && (<Link onClick={handleLogout} className="navigation-login" to="/">Deconnexion</Link>)}

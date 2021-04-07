@@ -19,7 +19,7 @@ const initialState = {
   destination: '',
   category: '',
   startDate: '',
-  // startCity: '',
+  isFavori: false,
 };
 
 const travelsReducer = (state = initialState, action = {}) => {

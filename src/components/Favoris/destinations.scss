@@ -1,0 +1,144 @@
+@import 'src/styles/vars';
+
+.destinations{
+  justify-content: center;
+  display: flex;
+
+  .destinations-container{
+    margin: $gutter;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+   
+    .form{
+       width: 28%;
+      //  position: absolute;
+  
+    .filter-form{
+  
+      width: 100%;
+          .filter-form-input-category{
+              // margin:$gutter / 8;
+          }
+  
+          .filter-form-input-destination{
+            margin-top:$gutter / 8;
+          }
+  
+          .filter-form-input-date{
+              margin-top: $gutter / 8;           
+            }
+  
+          .filter-form-button{
+              margin-top:$gutter / 8;
+          }
+          
+      }
+    }  
+  
+    .travels {    
+      width: 68%;
+      // display: flex;
+      // justify-content: flex-start;
+          .travels-small {
+            width: 100%;
+            display: block;
+            
+            .ui{
+                &.card{
+                  display: flex;
+                  width: 100%;
+                  .travel-carousel{
+                    width: 45%;
+                    // height: 100%;
+                    position: absolute;
+                  }
+  
+                  .travel-small {
+                          margin-left: 45%;  
+                    
+                          &.travel-small--favorite {
+                            border-color: $mainColor;
+                          }
+                        }
+                }
+                
+              }
+       
+          }
+        }
+  }
+}
+@media (max-width: 768px){
+  .destinations{
+    justify-content: center;
+    display: block;
+  
+    .destinations-container{
+      margin: 2%;
+      display: block;
+      width: 96%;
+      justify-content: center;
+     
+      .form{
+         width: 100%;
+        //  position: absolute;
+    
+      .filter-form{ 
+        width: 100%;
+            .filter-form-input-category{
+                margin:0rem;
+            }
+    
+            .filter-form-input-destination{
+              margin-top:0rem;
+            }
+    
+            .filter-form-input-date{
+              margin-top:0rem;           
+              }
+    
+            .filter-form-button{
+              margin-top:0rem;
+            }
+            
+        }
+      }
+
+      .travels {    
+        width: 100%;
+        // display: flex;
+        // justify-content: flex-start;
+            .travels-small {
+              width: 100%;
+              display: block;
+              
+              .ui{
+                  &.card{
+                    display: block;
+                    justify-content: center;
+                    margin: 1rem 0rem;
+                    width: 100%;
+                    border-radius: 1rem;
+                    .travel-carousel{
+                      width: 100%;
+                      position: relative;
+                    }
+    
+                    .travel-small {
+                            margin: 0%;  
+                      
+                            &.travel-small--favorite {
+                              border-color: $mainColor;
+                            }
+                          }
+                  }
+                  
+                }
+         
+            }
+          }
+    
+    }
+  }
+}

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import { GetFormattedDate, slugifyTitle } from 'src/utils';
-import { Rating, Card, Image } from 'semantic-ui-react';
+import { Rating, Card, Icon, Button } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
 import { TravelSmallStyles } from './TravelSmallStyled';
 
@@ -11,17 +11,30 @@ const TravelSmall = ({
   id,
   name,
   price,
-  isLiked,
   dates,
   cities,
   averageRating,
   baseline,
   image,
 }) => {
-  const cssClass = classNames('travel-small', { 'travel-small--favorite': isLiked });
+  // const cssClass = classNames('travel-small', { 'travel-small--favorite': isLiked });
   const handleCLick = () => {
     localStorage.setItem('idTravel', id);
   };
+  const [isFavori, setIsFavori] = useState(false);
+
+  const handleFavori = () => {
+    const listFavoris = localStorage.getItem('listFavoriId') ? localStorage.getItem('listFavoriId').split(',').map(Number) : [];
+    if (!isFavori && !listFavoris.includes(id)) {
+      localStorage.setItem('listFavoriId', [...listFavoris, id]);
+    }
+    if (isFavori && listFavoris.includes(id)) {
+      localStorage.setItem('listFavoriId', [listFavoris.filter((item) => item !== id)]);
+    }
+    setIsFavori(!isFavori);
+  };
+  const list = localStorage.getItem('listFavoriId') ? localStorage.getItem('listFavoriId').split(',').map(Number) : [];
+  // console.log(list);
 
   return (
     <Card>
@@ -30,7 +43,7 @@ const TravelSmall = ({
           {image.map((img) => <img src={`http://localhost:8000/assets/images/${img}`} key={img} alt="" />)}
         </Carousel>
       </div>
-      <article className={cssClass}>
+      <article className="travel-small">
         <div className="travel-small-content">
           <div className="activity-name-price">
             <div className="activity-name">
@@ -40,7 +53,7 @@ const TravelSmall = ({
               <div className="activity-price-prefix">
                 <strong>
                   A partir de
-            </strong>
+                </strong>
               </div>
               <div className="activity-price-amount">
                 <strong>
@@ -75,6 +88,16 @@ const TravelSmall = ({
           >
             Voir les détails
           </Link>
+          {(!isFavori && !list.includes(id)) && (
+            <Button icon onClick={handleFavori}>
+              <Icon name="heart outline" />
+            </Button>
+          )}
+          {(isFavori || list.includes(id)) && (
+            <Button icon onClick={handleFavori}>
+              <Icon name="heart" />
+            </Button>
+          )}
         </div>
         <TravelSmallStyles />
       </article>
@@ -87,7 +110,6 @@ TravelSmall.propTypes = {
   name: PropTypes.string.isRequired,
   baseline: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  isLiked: PropTypes.bool.isRequired,
   dates: PropTypes.array.isRequired,
   cities: PropTypes.array.isRequired,
   image: PropTypes.array.isRequired,
