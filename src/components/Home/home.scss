@@ -31,10 +31,9 @@
     } 
   }
   
-
-    .travels {
+  .travels {
       margin: $gutter;
-        .travels-small {
+      .travels-small {
           display: flex;
           flex-flow: wrap;
           justify-content: center;
@@ -43,46 +42,13 @@
               width: 300px;
               margin: 2rem;
               border-radius: 1rem;
-            overflow: hidden;   
-            .travel-small {
-            
-            // border: 1px solid #CCC;
-               
-            // .travel-small-content {
-            //   padding: 1rem;
-      
-            //   h2 {
-            //     font-weight: bold;
-            //     font-size: 1.2em;
-            //   }
-      
-            //   p {
-            //     margin-top: 0.3em;
-            //     margin-bottom: 0.3em;
-            //   }
-
-            //   .activity-location {
-            //     .activity-location{
-            //     }
-            //   }
-      
-            //   a {
-            //     color: $mainColor;
-            //     cursor: pointer;
-            //      &:hover {
-            //        text-decoration: underline;
-            //      }
-            //   }
-            // }
-      
-            &.travel-small--favorite {
-              border-color: $mainColor;
+              overflow: hidden; 
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;  
             }
           }
-            }
-          }
-      
-      
+         
         }
       }
 }

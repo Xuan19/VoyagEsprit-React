@@ -5,8 +5,6 @@ import { Button } from 'semantic-ui-react';
 export const TravelSmallStyles = createGlobalStyle`
 .travel-small-content {
   padding: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 0rem;
   color:#08415C;
   display: flex;
   flex-direction: column;
@@ -77,7 +75,7 @@ export const TravelSmallStyles = createGlobalStyle`
      }
 
      .ui-star-rating{
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
      }
 
     a {
@@ -93,7 +91,6 @@ export const TravelSmallStyles = createGlobalStyle`
 export const ButtonStyled = styled(Button)`
   &.button { 
       width: 20%;
-      height: 10%;
       background-color: white;
       font-size: 1.5rem;
       margin-left: 80%;

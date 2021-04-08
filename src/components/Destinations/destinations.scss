@@ -48,6 +48,7 @@
                 &.card{
                   display: flex;
                   width: 100%;
+                  position: relative;
                   .travel-carousel{
                     width: 45%;
                     // height: 100%;
@@ -55,11 +56,12 @@
                   }
   
                   .travel-small {
-                          margin-left: 45%;  
-                    
-                          &.travel-small--favorite {
-                            border-color: $mainColor;
-                          }
+                          margin-left: 45%;               
+                        }
+                  .favori-button {
+                    position: absolute;
+                    margin-left: 80%;
+                    margin-top: 20%;
                         }
                 }
                 
@@ -128,9 +130,12 @@
                     .travel-small {
                             margin: 0%;  
                       
-                            &.travel-small--favorite {
-                              border-color: $mainColor;
-                            }
+                          }
+
+                    .favori-button {
+                      position: relative;
+                      margin-left: 0%;
+                      margin-top: 0%;
                           }
                   }
                   

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { GetFormattedDate, slugifyTitle } from 'src/utils';
 import { Rating, Card, Icon, Button } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
-import { TravelSmallStyles } from './TravelSmallStyled';
+import { TravelSmallStyles, ButtonStyled } from './TravelSmallStyled';
 
 const TravelSmall = ({
   id,
@@ -88,19 +88,21 @@ const TravelSmall = ({
           >
             Voir les détails
           </Link>
-          {(!isFavori && !list.includes(id)) && (
-            <Button icon onClick={handleFavori}>
-              <Icon name="heart outline" />
-            </Button>
-          )}
-          {(isFavori || list.includes(id)) && (
-            <Button icon onClick={handleFavori}>
-              <Icon name="heart" />
-            </Button>
-          )}
         </div>
         <TravelSmallStyles />
       </article>
+      <div className="favori-button">
+        {(!isFavori && !list.includes(id)) && (
+          <ButtonStyled icon onClick={handleFavori}>
+            <Icon name="heart outline" />
+          </ButtonStyled>
+        )}
+        {(isFavori || list.includes(id)) && (
+          <ButtonStyled icon onClick={handleFavori}>
+            <Icon name="heart" />
+          </ButtonStyled>
+        )}
+      </div>
     </Card>
   );
 };

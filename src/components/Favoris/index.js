@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TravelSmall from '../TravelSmall';
+import TravelSmall from './TravelSmall';
+import './favoris.scss';
 
 const Favoris = ({ travels, mainTravels }) => {
   const travelsList = mainTravels.concat(travels);
@@ -14,13 +15,16 @@ const Favoris = ({ travels, mainTravels }) => {
     }
   }
   return (
-    <main className="travels">
-      <div className="travels-small">
-        {listFavoris.map((travel) => (
-          <TravelSmall key={travel.id} {...travel} />
-        ))}
-      </div>
-    </main>
+    <div className="favoris">
+      <h1 className="title"><span>Favoris</span></h1>
+      <main className="travels">
+        <div className="travels-small">
+          {listFavoris.map((travel) => (
+            <TravelSmall key={travel.id} {...travel} />
+          ))}
+        </div>
+      </main>
+    </div>
   );
 };
 

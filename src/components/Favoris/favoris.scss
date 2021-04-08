@@ -1,0 +1,145 @@
+@import 'src/styles/vars';
+
+.favoris{
+  margin-bottom: 5%;
+  margin-top: 5%;
+
+  .title{
+    text-align: center;
+    line-height: 1.2;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .travels {    
+    width: 68%;
+    margin-left: 16%;
+    // 
+    
+        .travels-small {
+          width: 100%;
+          display: block;
+          
+          .ui{
+              &.card{
+                display: flex;
+                width: 100%;
+                margin-bottom: 1rem;
+                .travel-carousel{
+                  width: 42%;
+                  // height: 100%;
+                  position: absolute;
+                }
+
+                .travel-small {
+                        margin-left: 42%;
+                  
+                        .favori-button {
+                          width: 100%;
+                        }
+                      }
+              }
+              
+            }
+     
+        }
+      }
+
+}
+  
+@media (max-width: 768px){
+
+  .favoris{
+    .travels {    
+      width: 90%;
+      margin-left: 5%;
+      margin-top: 5%;
+      margin-bottom: 5%;
+          .travels-small {
+            width: 100%;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+            
+            .ui{
+                &.card{
+                  display: flex;            
+                  width: 100%;
+                  .travel-carousel{
+                    width: 100%;
+                    // height: 100%;
+                    position: relative;
+                  }
+                  // overflow: hidden; 
+  
+                  .travel-small {
+                          margin-left: 0%;  
+                    
+                          &.travel-small--favorite {
+                            border-color: $mainColor;
+                          }
+                        }
+                }
+                
+              }
+       
+          }
+        }
+  
+  }
+  .favoriss{
+    .travels {
+      margin: $gutter;
+        .travels-small {
+          display: flex;
+          flex-flow: wrap;
+          justify-content: center;
+          .ui{
+            &.card{
+              width: 300px;
+              margin: 2rem;
+              border-radius: 1rem;
+            overflow: hidden;   
+            .travel-small {
+            
+            // border: 1px solid #CCC;
+               
+            // .travel-small-content {
+            //   padding: 1rem;
+      
+            //   h2 {
+            //     font-weight: bold;
+            //     font-size: 1.2em;
+            //   }
+      
+            //   p {
+            //     margin-top: 0.3em;
+            //     margin-bottom: 0.3em;
+            //   }
+
+            //   .activity-location {
+            //     .activity-location{
+            //     }
+            //   }
+      
+            //   a {
+            //     color: $mainColor;
+            //     cursor: pointer;
+            //      &:hover {
+            //        text-decoration: underline;
+            //      }
+            //   }
+            // }
+      
+            &.travel-small--favorite {
+              border-color: $mainColor;
+            }
+          }
+            }
+          }
+      
+      
+        }
+      }
+  
+  }
+}
