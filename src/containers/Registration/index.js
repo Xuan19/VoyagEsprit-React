@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Registration from 'src/components/Registration';
-import { changeField, handleRegister } from 'src/actions/user';
+import { changeField, handleRegister, setIsRegisteredFalse } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleRegister: () => {
     dispatch(handleRegister());
+  },
+  setIsRegisteredFalse: () => {
+    dispatch(setIsRegisteredFalse());
   },
 });
 

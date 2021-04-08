@@ -8,6 +8,7 @@ import {
   SET_LOADING_FALSE,
   SET_IS_SUBMIT,
   CHANGE_DATE,
+  SET_IS_REGISTERED_FALSE,
 } from '../actions/user';
 
 const initialState = {
@@ -95,6 +96,12 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         birthday: action.date,
+      };
+
+    case SET_IS_REGISTERED_FALSE:
+      return {
+        ...state,
+        isRegistered: false,
       };
 
     default: return state;

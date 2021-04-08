@@ -1,12 +1,10 @@
 /* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+// import ReCAPTCHA from 'react-google-recaptcha';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
 import Field from './Field';
-
 import './register.scss';
 
 const Registration = ({
@@ -18,78 +16,115 @@ const Registration = ({
   password,
   passwordConfirm,
   isRegistered,
+  setIsRegisteredFalse,
 }) => {
-  const emailValide = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-  const passwordValide = password.length >= 6;
-  const [recaptchaValide, setRecaptchaValide] = useState(false);
-  const [formValide, setFormValide] = useState(true);
+  const [formValide, setFormValide] = useState(false);
+  const [emailValide, setEmailValide] = useState(false);
+  const [passwordValide, setPasswordValide] = useState(false);
+  const [passwordConfirmValide, setPasswordConfirmValide] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (emailValide && passwordValide && password === passwordConfirm) {
+    if (!emailValide && !passwordValide && !passwordValide) {
       handleRegister();
+      setFormValide(true);
+      setIsRegisteredFalse(false);
     }
-    else setFormValide(false);
+  };
+  const HandleChangeField = (value, name) => {
+    changeField(value, name);
+  };
+
+  const HandleChangeEmail = (value, name) => {
+    changeField(value, name);
+    if (value !== '') {
+      setEmailValide(!value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i));
+    }
+    if (value === '') {
+      setEmailValide(false);
+    }
+  };
+
+  const HandleChangePassword = (value, name) => {
+    changeField(value, name);
+    if (value !== '') {
+      setPasswordValide(!(value.length >= 6));
+    }
+
+    if (value === '') {
+      setPasswordValide(false);
+    }
+  };
+
+  const HandleChangePasswordConfirm = (value, name) => {
+    changeField(value, name);
+    if (value !== '') {
+      setPasswordConfirmValide(!(password === value));
+    }
+    if (value === '') {
+      setPasswordConfirmValide(true);
+    }
   };
 
   return (
     <main className="register">
       <h1 className="register-title">Inscription</h1>
       <form className="register-form" onSubmit={handleSubmit}>
-        <div className="register-input">
-          <div className="register-input-div">
+        <div className="register-inputs">
+          <div className="register-input">
             <label>Prénom*</label>
             <Field
               type="text"
               name="firstName"
               value={firstName}
-              onChange={changeField}
+              onChange={HandleChangeField}
             />
           </div>
-          <div className="register-input-div">
+          <div className="register-input">
             <label>Nom*</label>
             <Field
               type="text"
               name="lastName"
               value={lastName}
-              onChange={changeField}
+              onChange={HandleChangeField}
             />
           </div>
-          <div className="register-input-email">
+          <div className="register-input">
             <label>Email*</label>
             <Field
               type="email"
               name="email"
               value={email}
-              onChange={changeField}
+              onChange={HandleChangeEmail}
             />
-            {!emailValide && <div><p>Email n'est pas valide</p></div>}
+            {emailValide && <div className="message-erreur"><p>email n'est pas valide</p></div>}
           </div>
-          <div className="register-input-email">
+          <div className="register-input">
             <label>Mot de Passe*</label>
             <Field
               type="password"
               name="password"
               value={password}
-              onChange={changeField}
+              onChange={HandleChangePassword}
             />
-            {!passwordValide && <div><p>le mot de passe doit avoir minimum 6 chiffre</p></div>}
+            {passwordValide && <div className="message-erreur"><p>le mot de passe doit avoir minimum 6 chiffre</p></div>}
           </div>
-          <div className="register-input-email">
+          <div className="register-input">
             <label>Confirmation Mot de passe*</label>
             <Field
               type="password"
               name="passwordConfirm"
               value={passwordConfirm}
-              onChange={changeField}
+              onChange={HandleChangePasswordConfirm}
             />
-            {password !== passwordConfirm
-              && <div><p>les mots de passe ne sont pas identiques</p></div>}
+            {passwordConfirmValide
+              && <div className="message-erreur"><p>les mots de passe ne sont pas identiques</p></div>}
           </div>
+          <input className="register-send-input" type="submit" value="S'inscrire" />
         </div>
-        <ReCAPTCHA
+        {/* <ReCAPTCHA
           className="ReCAPTCHA"
           // style={{ display: 'inline-block' }}
-          style={{ transform: 'scale(0.77)' }}
+          // style={{ transform: 'scale(0.77)' }}
           sitekey="6LekdgAVAAAAAE0Oc1rd2KkpPCMprHY7cDzEtngU"
           // size="normal"
           onChange={() => {
@@ -100,32 +135,36 @@ const Registration = ({
             && (
               <input className="register-send-input" type="submit" value="S'inscrire" />
             )}
-        </ReCAPTCHA>
-        {isRegistered
+        </ReCAPTCHA> */}
+        {isRegistered && formValide
           && (
-            <div className="register-send-ok">
-              <p className="register-redirect-ok">
+            <div className="register-send-success">
+              <p className="register-redirect-success">
                 Vous êtes maintenant inscrit,  <Link to="/connexion" className="register-redirect-link">Connectez-vous</Link>
               </p>
             </div>
           )}
-        {!formValide
+
+        {!isRegistered && formValide
           && (
-            <div className="register-send-nop">
-              <p>Une erreur s'est produite</p>
+            <div className="register-send-failed">
+              <p>votre email existe déjà ou une erreur s'est produite</p>
             </div>
           )}
       </form>
+      {isRegistered && (
       <p className="register-redirect">
         Déjà inscrit ? <Link to="/connexion" className="register-redirect-link">Connectez-vous</Link>
       </p>
-    </main >
+      )}
+    </main>
   );
 };
 
 Registration.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleRegister: PropTypes.func.isRequired,
+  setIsRegisteredFalse: PropTypes.func.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,

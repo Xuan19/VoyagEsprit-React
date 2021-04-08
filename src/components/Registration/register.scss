@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 .register{
-    margin:5rem 20%;
-    width: 60%;
+    margin:5rem 30%;
+    width: 40%;
     color: $dark-color;
 
     .register-title{
@@ -12,32 +12,47 @@
         text-align: center;
     }
 
-    .register-description{
-        font-size: 1.5rem;
-        padding: $gutter / 2;
-        margin-bottom: $gutter;
-        font-weight: 700;
-    }
+    .register-form{
+        
+        .register-inputs{
+            display: block;
+            flex-wrap: wrap;
+            justify-content: space-between;
 
+            .register-input{
+                padding-bottom: $gutter / 3;
+                .register-input-content{
+                    height: 45px;
+                    width: 100%;
+                    margin-bottom: 15px;
+                    border: 1px solid #ced4da;
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
 
+            .message-erreur{
+                color: red;
+                }
 
-    .ReCAPTCHA{
+            }
 
-        display: block;
-
-        .register-send-input{
-            order: 1;
-            width: 100%;
-            margin: 5px;
-            height: 45px;
-            margin-top: 15px;
-            padding: 6px 12px;
-            font-size: 14px;
-            font-weight: 400;
+            .register-send-input{
+                width: 100%;
+                height: 45px;
+                // margin-top: 15px;
+                // padding: 6px 12px;
+                font-size: 16px;
+                // font-weight: 400;
+                border: 1px solid #ced4da;
+                cursor: pointer;
+                color: $dark-color;
+            }
         }
     }
 
-    .register-send-ok{
+
+    .register-send-success{
         margin-top: $gutter / 2;
         width: 100%;
         background-color: rgba(40, 163, 40, 0.479);
@@ -49,7 +64,7 @@
         }
     }
 
-    .register-send-nop{
+    .register-send-failed{
         margin-top: $gutter / 2;
         width: 100%;
         background-color: rgba(207, 95, 95, 0.479);
@@ -61,45 +76,7 @@
         }
     }
 
-    .register-form{
-
-        margin: 2px;
-
-        .register-input{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-
-            .register-input-div{
-                padding-bottom: $gutter / 3;
-                width: 48%;
-                .register-input-content{
-                    height: 45px;
-                    width: 100%;
-                    margin-bottom: 15px;
-                    border: 1px solid #ced4da;
-                    padding: 6px 12px;
-                    font-size: 14px;
-                    font-weight: 400;
-                }
-            }
-
-            .register-input-email{
-                padding-bottom: $gutter / 3;
-                width: 100%;
-                .register-input-content{
-                    height: 45px;
-                    width: 100%;
-                    margin-bottom: 15px;
-                    border: 1px solid #ced4da;
-                    padding: 6px 12px;
-                    font-size: 14px;
-                    font-weight: 400;
-                }
-            }
-        }
-    }
-
+    
     .register-redirect{
 
         margin-top: $gutter;
@@ -114,7 +91,7 @@
         }
     }
 
-    .register-redirect-ok{
+    .register-redirect-success{
         margin-top: $gutter;
         padding: $gutter;
         color: $dark-color;
@@ -148,45 +125,112 @@
 
 @media (max-width: 768px) {
     .register{
-        margin: 3rem auto;
-        width: 90%;
-        text-align: center;
-
-        .ReCAPTCHA{
-
-            // .ReCAPTCHA > div > div >{
-            //     display: flex;
-            //     place-content: center;
-            //     width: 200px;
-            //     transform:scale(0.5);
-            //     transform-origin:0 0;
-            // }
-
-            .register-send-input{
-                width: 100%;
-                margin: 5px;
-                height: 45px;
-                margin-top: 15px;
-                padding: 6px 12px;
-                font-size: 14px;
-                font-weight: 400;
-            }
+        margin:5rem 10%;
+        width: 80%;
+        color: $dark-color;
+    
+        .register-title{
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: $gutter;
+            padding-bottom: $gutter / 2;
+            text-align: center;
         }
-
+    
         .register-form{
-
-
-            .register-input{
+            
+            .register-inputs{
                 display: block;
-
-                .register-input-div{
+                flex-wrap: wrap;
+                justify-content: space-between;
+    
+                .register-input{
+                    padding-bottom: $gutter / 3;
+                    .register-input-content{
+                        height: 45px;
+                        width: 100%;
+                        margin-bottom: 15px;
+                        border: 1px solid #ced4da;
+                        padding: 6px 12px;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+    
+                .message-erreur{
+                    color: red;
+                    }
+    
+                }
+    
+                .register-send-input{
                     width: 100%;
+                    height: 45px;
+                    font-size: 16px;
+                    border: 1px solid #ced4da;
+                    cursor: pointer;
+                    color: $dark-color;
                 }
             }
         }
-
-        .register-redirect-nop{
+    
+    
+        .register-send-success{
+            margin-top: $gutter / 2;
             width: 100%;
+            background-color: rgba(40, 163, 40, 0.479);
+            text-align: center;
+            border-radius: 5px;
+    
+            & p{
+                padding: 15px;
+            }
+        }
+    
+        .register-send-failed{
+            margin-top: $gutter / 2;
+            width: 100%;
+            background-color: rgba(207, 95, 95, 0.479);
+            text-align: center;
+            border-radius: 5px;
+    
+            & p{
+                padding: 15px;
+            }
+        }
+    
+        
+        .register-redirect{
+    
+            margin-top: $gutter;
+            text-align: center;
+    
+            .register-redirect-link{
+                color: $primary-color;
+    
+                &:hover{
+                    color: $alt-color;
+                }
+            }
+        }
+    
+        .register-redirect-success{
+            margin-top: $gutter;
+            padding: $gutter;
+            color: $dark-color;
+            text-align: center;
+            background-color: rgba(40, 163, 40, 0.479);
+    
+            .register-redirect-link{
+                color: $primary-color;
+    
+                &:hover{
+                    color: $alt-color;
+                }
+            }
+        }
+    
+        .register-redirect-nop{
+            width: 500px;
             margin: $gutter auto;
             padding: $gutter;
             color: $dark-color;
@@ -198,5 +242,7 @@
                 padding: $gutter/2;
             }
         }
-    }   
+    
+    }
+     
 }

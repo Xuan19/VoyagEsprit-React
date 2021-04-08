@@ -79,14 +79,6 @@ const Profile = ({
                   // onChange={changeField}
                   value={email}
                 />
-                {/* <Field
-                  name="birthday"
-                  label="Date de naissance"
-                  onChange={changeField}
-                  // value={GetFormattedDateUserInfo(birthday)}
-                  value={birthday}
-                  placeholder="jj-mm-aaaa"
-                /> */}
 
                 <div className="profile-data">
                   <div className="profile-data-label">

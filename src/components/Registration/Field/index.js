@@ -26,6 +26,7 @@ const Field = ({
         id={inputId}
         type={type}
         name={name}
+        required="required"
       />
     </div>
   );
