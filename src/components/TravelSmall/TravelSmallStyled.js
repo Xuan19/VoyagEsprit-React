@@ -5,8 +5,6 @@ import { Button } from 'semantic-ui-react';
 export const TravelSmallStyles = createGlobalStyle`
 .travel-small-content {
   padding: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 0rem;
   color:#08415C;
   display: flex;
   flex-direction: column;

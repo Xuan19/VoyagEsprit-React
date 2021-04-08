@@ -21,6 +21,7 @@ const Header = ({ logOut, isLogged }) => {
       <div className="navigation-login-content">
         <Link className="navigation-login" to="/favoris"><Icon name="heart outline" />Favoris</Link>
         {isLogged && (<Link className="navigation-login" to="/Profile">Profile</Link>)}
+        {isLogged && (<Link className="navigation-login" to="/Profile">Mon Compte</Link>)}
         {!isLogged && (<Link className="navigation-login" to="/connexion"><Icon name="user circle outline" />Connexion</Link>)}
         {isLogged && (<Link onClick={handleLogout} className="navigation-login" to="/">Deconnexion</Link>)}
       </div>
