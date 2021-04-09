@@ -27,7 +27,7 @@ const Header = ({ logOut, isLogged }) => {
 
         <Link className="navigation-login" to="/favoris"><Icon name="heart outline" />Favoris</Link>
         {isLogged && (
-          <Link onClick={showSettings} className="navigation-login">
+          <Link onMouseEnter={showSettings} onMouseLeave={showSettings} className="navigation-login">
             <Icon name="user circle outline" />
             Mon Compte
             {isOpen && (

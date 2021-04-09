@@ -1,66 +1,28 @@
 @import 'src/styles/vars';
 
-.login-form {
-    width: 90%;
-    margin: 5rem auto;
-    text-align: center;
-    margin-bottom: $gutter*10;
-
-    .register-redirect-ok{
-        margin-top: $gutter;
-        padding: $gutter;
-        color: $dark-color;
-        text-align: center;
-        background-color: rgba(40, 163, 40, 0.479);
-
-        .register-redirect-link{
-            color: $primary-color;
-
-            &:hover{
-                color: $alt-color;
-            }
-        }
-    }
-
-    .register-redirect-nop{
-        margin: $gutter auto;
-        padding: $gutter;
-        color: $dark-color;
-        text-align: center;
-        background-color: rgba(207, 95, 95, 0.479);
-
-        .register-redirect-nop-ul{
-            text-align: left;
-            padding: $gutter/2;
-        }
-    }
+.login{
+    width: 36%;
+    margin: 10% 32%;
 
     .login-form-element {
-      display: block;
-      padding: $gutter*3;
-      text-align: center;
 
       .login-title{
         text-align: center;
         font-size: 2.5rem;
         font-weight: 700;
-        margin-bottom: 2rem;
-        padding-bottom: 1rem;
+        margin-bottom: 3rem;
         color:#08415C;
     }
 
     .field {
-      margin: .3em;
-      position: relative;
-
       .field-input {
-        width: 500px;
-        padding: .7em;
+        width: 100%;
         font-size: 1.5em;
         border: 1px solid #ced4da;
         border-radius: .3em;
         height: 2.5em;
-        margin: 1rem;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
 
         &:focus {
           border-color: #f17f42;
@@ -70,81 +32,79 @@
 
       .field-label {
         display: none;
-        position: absolute;
-        top: .2rem;
-        left: .7rem;
-        font-weight: 700;
-        color: #999;
-        font-size: 1em;
-        text-transform: uppercase;
-        font-family: sans-serif;
-        animation: labelSlideUpAndShow .3s;
       }
     }
 
     .login-form-button {
-      margin-top: $gutter;
       font-size: 1.5em;
       border-radius: .3em;
       border: 0;
-    
       height: 2.5em;
-      width: 200px;
+      width: 30%;
+      margin-left: 35%;
+      margin-top: 1rem;
       font-weight: 700;
       color:#08415C;
     }
-    
-      
+     
     }
-  }
-  .login-redirect{
 
-    margin-top: $gutter;
+    .login-redirect{
+
+      margin-top: $gutter;
+      text-align: center;
+  
+      .login-redirect-link{
+          color: $primary-color;
+  
+          &:hover{
+              color: $alt-color;
+          }
+      }
+
+     
+    }
+
+     .login-failed{
+    margin-top: 2rem;
+    padding: $gutter/2;
+    color: $dark-color;
     text-align: center;
+    background-color: rgba(207, 95, 95, 0.479);
 
-    .login-redirect-link{
-        color: $primary-color;
-
-        &:hover{
-            color: $alt-color;
-        }
+    .login-failed-erreurs{
+        // text-align: left;
+        padding: $gutter/4;
     }
+    }
+
 }
 
+
 @media only screen and (max-width: 768px) {
-  .login-form {
-    width: 90%;
-    margin: 3rem 5%;
-    text-align: center;
-    margin-bottom: $gutter;
+  .login{
+    width: 80%;
+    margin: 10% 10%;
 
     .login-form-element {
-      display: block;
-      padding: 0;
-      text-align: center;
 
       .login-title{
         text-align: center;
         font-size: 2rem;
         font-weight: 700;
-        margin-bottom: 0rem;
-        padding-bottom: 0rem;
+        margin-bottom: 2rem;
         color:#08415C;
     }
 
     .field {
-      margin-left:5%;
-      // position: relative;
-      width: 80%;
-
       .field-input {
         width: 100%;
-        padding: 0.7em;
-        font-size: 1.2em;
+        font-size: 1.5em;
         border: 1px solid #ced4da;
         border-radius: .3em;
         height: 2.5em;
-        margin-bottom: 0rem;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
 
         &:focus {
           border-color: #f17f42;
@@ -154,44 +114,51 @@
 
       .field-label {
         display: none;
-        position: absolute;
-        top: .2rem;
-        left: .7rem;
-        font-weight: 700;
-        color: #999;
-        font-size: 1em;
-        text-transform: uppercase;
-        font-family: sans-serif;
-        animation: labelSlideUpAndShow .3s;
       }
     }
 
     .login-form-button {
-      margin-top: $gutter;
-      font-size: 1.2em;
+      font-size: 1.5em;
       border-radius: .3em;
       border: 0;
-    
       height: 2.5em;
-      width: 150px;
+      width: 50%;
+      margin-left: 25%;
+      margin-top: 1rem;
       font-weight: 700;
       color:#08415C;
     }
-    
-      
+     
     }
-  }
-  .login-redirect{
 
-    margin-top: $gutter;
+    .login-redirect{
+
+      margin-top: $gutter;
+      text-align: center;
+  
+      .login-redirect-link{
+          color: $primary-color;
+  
+          &:hover{
+              color: $alt-color;
+          }
+      }
+
+     
+    }
+
+     .login-failed{
+    margin-top: 2rem;
+    padding: $gutter/2;
+    color: $dark-color;
     text-align: center;
+    background-color: rgba(207, 95, 95, 0.479);
 
-    .login-redirect-link{
-        color: $dark-color;
-
-        &:hover{
-            color: $primary-color;
-        }
+    .login-failed-erreurs{
+        // text-align: left;
+        padding: $gutter/4;
     }
+    }
+
 }
 }

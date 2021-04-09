@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   email: state.user.email,
+  password: state.user.password,
   // image: state.user.image,
   birthday: state.user.birthday,
   phoneNumber: state.user.phoneNumber,

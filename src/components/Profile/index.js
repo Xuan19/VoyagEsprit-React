@@ -3,12 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Icon } from 'semantic-ui-react';
-import { GetFormattedDateUserInfo, DateIsNoNul, transfomrNoNull } from 'src/utils';
+import { GetFormattedDateUserInfo } from 'src/utils';
 import Loader from 'src/components/Loader';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import fr from 'date-fns/esm/locale/fr';
-import NavDashboard from './NavDashboard';
 import './profile.scss';
 import Field from './Field';
 import { DatePickerWrapperStyles, ButtonStyled } from './ProfilStyled';
@@ -27,6 +25,7 @@ const Profile = ({
   changeField,
   changeDate,
   setLoadingTrue,
+  password,
 }) => {
   registerLocale('fr', fr);
 
@@ -78,6 +77,13 @@ const Profile = ({
                   label="Adresse email"
                   // onChange={changeField}
                   value={email}
+                />
+                <Field
+                  name="password"
+                  type="password"
+                  label="Mot de passe"
+                  onChange={changeField}
+                  value={password}
                 />
 
                 <div className="profile-data">
@@ -138,6 +144,7 @@ Profile.propTypes = {
   lastName: PropTypes.string.isRequired,
   birthday: PropTypes.instanceOf(Date).isRequired,
   phoneNumber: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
   // password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,

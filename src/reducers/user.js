@@ -9,6 +9,7 @@ import {
   SET_IS_SUBMIT,
   CHANGE_DATE,
   SET_IS_REGISTERED_FALSE,
+  SET_USER_VALIDE,
 } from '../actions/user';
 
 const initialState = {
@@ -28,6 +29,7 @@ const initialState = {
   birthday: '',
   phoneNumber: '',
   isSubmit: false,
+  userValide: true,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -44,6 +46,7 @@ const userReducer = (state = initialState, action = {}) => {
         isLogged: true,
         firstName: action.data.data.firstname,
         lastName: action.data.data.lastname,
+        // password: action.data.data.password,
         loading: false,
       };
 
@@ -67,6 +70,7 @@ const userReducer = (state = initialState, action = {}) => {
         lastName: action.data.lastName,
         email: action.data.email,
         // image: action.image,
+        password: '111111',
         birthday: action.data.birthday,
         phoneNumber: action.data.phoneNumber,
         loading: false,
@@ -102,6 +106,12 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isRegistered: false,
+      };
+    case SET_USER_VALIDE:
+      return {
+        ...state,
+        // loading: false,
+        userValide: false,
       };
 
     default: return state;

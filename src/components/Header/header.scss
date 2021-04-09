@@ -15,13 +15,19 @@
 
   .logo{
     // position:absolute;
-    margin-top: 1rem;
+    // margin-top: 1rem;
    
       img{
-        margin-top: 1rem;
-        height: $gutter * 3;
-        width: $gutter * 3;
+        // margin-top: 1rem;
+        // height: $gutter * 3;
+        // width: $gutter * 3;
         border-radius: 10px;
+        opacity: 0.9;
+        transition: width 2s ease;  
+
+        &:hover{
+          border: 2px solid $alt-color;        
+      }
       }
   }
 
@@ -48,10 +54,10 @@
             border-radius: 10px;
             margin-left: $gutter/2;
 
-            .settings-menu{
-              margin: 0.5rem 0rem 0rem 2rem;
-              display: block;
 
+            .settings-menu{
+              margin: 0.5rem 0rem 0rem 1.5rem;
+              display: block;
 
               .navigation-login-menu{
                 // background-color:ced4da;
@@ -95,12 +101,13 @@
     
       .logo{
         // position:absolute;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
+        width: 23%;
        
           img{
-            margin-top: 1rem;
-            height: $gutter * 2;
-            width: $gutter * 2;
+            // margin-top: 1rem;
+            // height: $gutter * 2;
+            width: 100%;
             border-radius: 10px;
           }
       }
@@ -110,7 +117,7 @@
       }
     
         .navigation-login-content{
-            margin-top: 2rem;
+            margin-top: 1rem;
             // margin-right: 2rem;
             display: flex;
             // align-items: center;

@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
   email: state.user.email,
   password: state.user.password,
   isLogged: state.user.isLogged,
-  loading: state.user.loading,
+  userValide: state.user.userValide,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -31,6 +31,7 @@ const mapDispatchToProps = (dispatch) => ({
   setIsSubmit: () => {
     dispatch(setIsSubmit());
   },
+
   handleLogout: () => {
     dispatch(logOut());
   },

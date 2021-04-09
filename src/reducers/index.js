@@ -12,9 +12,9 @@ import userReducer from './user';
 // on définit le reducer principal, qui combine les autres
 const rootReducer = combineReducers({
   // nomDuTiroir: reducer qui gère cette partie du state
+  user: userReducer,
   travels: travelsReducer,
   travel: travelReducer,
-  user: userReducer,
 });
 
 // pour accéder au state défini dans le reducer 'recipesReducer', il faudra que je

@@ -8,6 +8,10 @@ import {
 
 } from '../actions/travels';
 
+import {
+  SET_USER_VALIDE,
+} from '../actions/user';
+
 const initialState = {
   listTravels: [],
   listMainTravels: [],
@@ -70,6 +74,12 @@ const travelsReducer = (state = initialState, action = {}) => {
         ...state,
         loading: false,
       };
+
+    // case SET_USER_VALIDE:
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //   };
 
     default: return state;
   }

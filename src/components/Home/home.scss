@@ -45,7 +45,11 @@
               overflow: hidden; 
               display: flex;
               flex-direction: column;
-              justify-content: space-between;  
+              justify-content: space-between;
+              &:hover{
+                border: 2px solid $alt-color;
+                box-shadow: 0 0 11px rgba(33,33,33,.2);  
+              }  
             }
 
             .favori-button {

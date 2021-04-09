@@ -14,6 +14,7 @@ export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
 export const SET_IS_SUBMIT = 'SET_IS_SUBMIT';
 export const CHANGE_DATE = 'CHANGE_DATE';
 export const SET_IS_REGISTERED_FALSE = 'SET_IS_REGISTERED_FALSE';
+export const SET_USER_VALIDE = 'SET_USER_VALIDE';
 
 export const changeField = (newValue, identifier) => ({
   type: CHANGE_FIELD,
@@ -79,4 +80,8 @@ export const changeDate = (date) => ({
 
 export const setIsRegisteredFalse = () => ({
   type: SET_IS_REGISTERED_FALSE,
+});
+
+export const setUserValide = () => ({
+  type: SET_USER_VALIDE,
 });

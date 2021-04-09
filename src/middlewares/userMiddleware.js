@@ -10,8 +10,9 @@ import {
   saveUserInfo,
   HANDLE_PROFILE,
   logOut,
+  setUserValide,
 } from 'src/actions/user';
-import { saveMainTravelsFormInfo, } from 'src/actions/travels';
+import { saveMainTravelsFormInfo,setLoadingFalse } from 'src/actions/travels';
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -26,7 +27,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          //  console.log(response.data);
+          // console.log(response.data);
           store.dispatch(saveUser(
             response.data,
           ));
@@ -34,8 +35,9 @@ const userMiddleware = (store) => (next) => (action) => {
           document.location.replace('/');
         })
         .catch((error) => {
-          // console.log(error.response.data);
-          store.dispatch(logOut());
+          console.log(error.response.data);
+          store.dispatch(setUserValide());
+          store.dispatch(setLoadingFalse());
         })
         .finally(() => {
           // document.location.replace('/');
@@ -134,6 +136,7 @@ const userMiddleware = (store) => (next) => (action) => {
         lastName,
         birthday,
         phoneNumber,
+        password,
       } = store.getState().user;
       axios({
         method: 'post',
@@ -152,10 +155,11 @@ const userMiddleware = (store) => (next) => (action) => {
           lastName,
           birthday,
           phoneNumber,
+          password,
         },
       })
         .then((response) => {
-          // console.log(response);
+          console.log(response);
           document.location.replace('/');
           store.dispatch(saveUserInfo(
             response.data,
