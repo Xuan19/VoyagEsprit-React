@@ -47,7 +47,24 @@
             font-weight: 500;
             border-radius: 10px;
             margin-left: $gutter/2;
-    
+
+            .settings-menu{
+              margin: 0.5rem 0rem 0rem 2rem;
+              display: block;
+
+
+              .navigation-login-menu{
+                // background-color:ced4da;
+                margin-bottom: 0.1rem;
+                padding: 0.5rem;
+                // border: 1px solid #ced4da;
+                &:hover{
+                  color: $alt-color;
+              }
+
+              }
+            }
+ 
             &:hover{
                 color: $alt-color;
             }
