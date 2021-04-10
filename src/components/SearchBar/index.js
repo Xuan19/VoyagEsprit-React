@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import fr from 'date-fns/esm/locale/fr';
-import Loader from 'src/components/Loader';
 import 'react-datepicker/dist/react-datepicker.css';
 import {
   ButtonStyled,
@@ -72,7 +71,6 @@ const SearchBar = ({
 
   return (
     <div className="form">
-      {/* {loading && <Loader />} */}
       {isSubmit && <Redirect to="/destinations" />}
       <form action="" className="filter-form" onSubmit={handleSubmit} target="">
         <div className="filter-form-input-category">
@@ -138,7 +136,6 @@ SearchBar.propTypes = {
   destination: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   setLoadingTrue: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
 };
 
 export default SearchBar;

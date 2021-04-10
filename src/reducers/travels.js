@@ -75,12 +75,6 @@ const travelsReducer = (state = initialState, action = {}) => {
         loading: false,
       };
 
-    // case SET_USER_VALIDE:
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //   };
-
     default: return state;
   }
 };

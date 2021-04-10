@@ -9,10 +9,9 @@ import {
   FETCH_USER_INFO,
   saveUserInfo,
   HANDLE_PROFILE,
-  logOut,
   setUserValide,
 } from 'src/actions/user';
-import { saveMainTravelsFormInfo,setLoadingFalse } from 'src/actions/travels';
+import { saveMainTravelsFormInfo, setLoadingFalse } from 'src/actions/travels';
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -159,8 +158,9 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
-          document.location.replace('/');
+          // console.log(response);
+          // document.location.replace('/');
+          store.dispatch(setLoadingFalse());
           store.dispatch(saveUserInfo(
             response.data,
           ));

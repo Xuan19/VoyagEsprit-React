@@ -6,6 +6,7 @@ import {
   saveMainTravelsFormInfo,
   FILTER,
   saveFilteredInfo,
+  setLoadingFalse,
 } from 'src/actions/travels';
 
 const travelsMiddleware = (store) => (next) => (action) => {
@@ -49,7 +50,9 @@ const travelsMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveFilteredInfo(response.data));
-          console.log(response.data);
+          store.dispatch(setLoadingFalse());
+          // document.location.replace('/destinations');
+          // console.log(response.data);
         })
         .catch((error) => {
           console.log(error.response.data);

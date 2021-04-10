@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 
 import Profile from 'src/components/Profile';
 
-import { fetchUserInfo, handleProfile, changeField, setLoadingTrue, changeDate, } from 'src/actions/user';
-// import { isLoading } from 'src/actions/travels';
+import { fetchUserInfo, handleProfile, changeField, changeDate } from 'src/actions/user';
+import { setLoadingTrue } from 'src/actions/travels';
 
 const mapStateToProps = (state) => ({
   loading: state.user.loading,
