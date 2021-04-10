@@ -119,7 +119,7 @@ const Registration = ({
             {passwordConfirmValide
               && <div className="message-erreur"><p>les mots de passe ne sont pas identiques</p></div>}
           </div>
-          <input className="register-send-input" type="submit" value="S'inscrire" />
+          <input className="register-submit" type="submit" value="S'inscrire" />
         </div>
         {/* <ReCAPTCHA
           className="ReCAPTCHA"

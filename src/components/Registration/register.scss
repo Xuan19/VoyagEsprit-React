@@ -37,7 +37,7 @@
 
             }
 
-            .register-send-input{
+            .register-submit{
                 width: 100%;
                 height: 45px;
                 // margin-top: 15px;
@@ -47,6 +47,11 @@
                 border: 1px solid #ced4da;
                 cursor: pointer;
                 color: $dark-color;
+                background-color: #cce2ff;
+
+                &:hover{
+                    background-color: #62aaf1;
+                }
             }
         }
     }

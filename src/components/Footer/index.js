@@ -8,12 +8,11 @@ import './footer.scss';
 // == Composant
 const Footer = () => (
   <footer className="footer">
-    <nav className="footer-navigation">
-      {/* <NavLink className="footer-link" to="/contact">Contact</NavLink> */}
+    <div className="footer-logo">
+      <img src={logo} alt="" className="logo" />
+    </div>
+    <div className="footer-navigation">
       <NavLink className="footer-link" to="/contact">Contact</NavLink>
-    </nav>
-    <div className="copyright">
-      <img src={logo} alt="" className="footer-logo" />
     </div>
   </footer>
 );

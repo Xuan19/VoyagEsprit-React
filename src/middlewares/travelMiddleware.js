@@ -1,6 +1,7 @@
 import axios from 'axios';
 import api from 'src/api';
 import { FETCH_TRAVEL, saveTravel } from 'src/actions/travel';
+import { setLoadingFalse } from 'src/actions/travels';
 
 const travelMiddleware = (store) => (next) => (action) => {
   const id = localStorage.getItem('idTravel');
@@ -9,6 +10,7 @@ const travelMiddleware = (store) => (next) => (action) => {
       api.get(`http://localhost:8000/api/v1/public/travel/${id}`)
         .then((response) => {
           store.dispatch(saveTravel(response.data));
+          store.dispatch(setLoadingFalse());
         })
         .catch(() => {
           localStorage.setItem('token', '');
