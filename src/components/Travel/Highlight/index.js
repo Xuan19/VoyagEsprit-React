@@ -27,7 +27,6 @@ const Highlight = ({
     }
     setIsFavori(!isFavori);
   };
-
   const list = localStorage.getItem('listFavoriId') ? localStorage.getItem('listFavoriId').split(',').map(Number) : [];
 
   return (
@@ -40,7 +39,7 @@ const Highlight = ({
         </div>
         <div className="travel-carousel">
           <Carousel>
-            {image.map((img) => <img src={`http://localhost:8000/assets/images/${img}`} alt="" />)}
+            {image.map((img) => <img src={`http://localhost:8001/assets/images/${img}`} alt="" />)}
           </Carousel>
         </div>
       </div>

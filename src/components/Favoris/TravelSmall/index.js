@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // import classNames from 'classnames';
 import { GetFormattedDate, slugifyTitle } from 'src/utils';
-import { Rating, Card, Icon, Button } from 'semantic-ui-react';
+import { Rating, Card, Icon} from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
 import { TravelSmallStyles, ButtonStyled } from './TravelSmallStyled';
 
@@ -16,10 +16,14 @@ const TravelSmall = ({
   averageRating,
   baseline,
   image,
+  fetchTravel,
+  setLoadingTrue,
 }) => {
   // const cssClass = classNames('travel-small', { 'travel-small--favorite': isLiked });
   const handleCLick = () => {
     localStorage.setItem('idTravel', id);
+    fetchTravel();
+    setLoadingTrue();
   };
 
   const [isDelete, setIsDelete] = useState(false);
@@ -37,7 +41,7 @@ const TravelSmall = ({
         <Card>
           <div className="travel-carousel">
             <Carousel showThumbs={false}>
-              {image.map((img) => <img src={`http://localhost:8000/assets/images/${img}`} key={img} alt="" />)}
+              {image.map((img) => <img src={`http://localhost:8001/assets/images/${img}`} key={img} alt="" />)}
             </Carousel>
           </div>
           <article className="travel-small">
@@ -108,6 +112,8 @@ TravelSmall.propTypes = {
   cities: PropTypes.array.isRequired,
   image: PropTypes.array.isRequired,
   averageRating: PropTypes.number.isRequired,
+  fetchTravel: PropTypes.func.isRequired,
+  setLoadingTrue: PropTypes.func.isRequired,
 };
 
 export default TravelSmall;

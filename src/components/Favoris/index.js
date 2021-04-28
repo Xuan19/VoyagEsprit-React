@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TravelSmall from './TravelSmall';
 import './favoris.scss';
 
-const Favoris = ({ travels, mainTravels }) => {
+const Favoris = ({ travels, mainTravels, fetchTravel, setLoadingTrue }) => {
   const travelsList = mainTravels.concat(travels);
   const listFavoriId = localStorage.getItem('listFavoriId') ? localStorage.getItem('listFavoriId').split(',').map(Number) : [];
   const listFavoris = [];
@@ -20,7 +20,12 @@ const Favoris = ({ travels, mainTravels }) => {
       <main className="travels">
         <div className="travels-small">
           {listFavoris.map((travel) => (
-            <TravelSmall key={travel.id} {...travel} />
+            <TravelSmall
+              key={travel.id}
+              {...travel}
+              fetchTravel={fetchTravel}
+              setLoadingTrue={setLoadingTrue}
+            />
           ))}
         </div>
       </main>
@@ -39,6 +44,8 @@ Favoris.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  setLoadingTrue: PropTypes.func.isRequired,
+  fetchTravel: PropTypes.func.isRequired,
 };
 
 export default Favoris;

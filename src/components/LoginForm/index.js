@@ -46,9 +46,6 @@ const LoginForm = ({
       <p className="login-redirect">
         Pas encore inscrit ? <Link to="/inscription" className="login-redirect-link">Inscrivez-vous</Link>
       </p>
-      <p className="login-redirect">
-        Mot de passe oublié ? <Link to="/mot-de-passe-oublie" className="login-redirect-link">Réinitialiser le mot de passe</Link>
-      </p>
 
       {!userValide && (
         <div className="login-failed">

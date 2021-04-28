@@ -19,6 +19,30 @@ export const ButtonStyled = styled.input`
   } 
   `;
 
+export const DatePickerWrapperStyles = createGlobalStyle`
+ .datePicker {
+  width: 100%; 
+  .react-datepicker__input-container{        
+      input{
+          border: 0.1px solid hsl(0, 0%, 80%);
+          border-radius: 4px;
+          width: 100%;
+          display:block;
+          margin:auto;
+          height: 3rem;
+          color: hsl(0, 0%, 20%);
+          padding: 0px 9px;
+      }
+ 
+      
+        // .react-datepicker__close-icon::before,
+        // .react-datepicker__close-icon::after {
+        //   background-color: grey;
+        //   }
+    }
+}
+`;
+
 export const CategorySelect = styled(ReactSelect)`
   &.react-select-container  {
     .react-select__control{
@@ -53,26 +77,4 @@ export const DestinationSelect = styled(ReactSelect)`
   }
 `;
 
-export const DatePickerWrapperStyles = createGlobalStyle`
- .datePicker {
-  width: 100%; 
-  .react-datepicker__input-container{        
-      input{
-          border: 0.1px solid hsl(0, 0%, 80%);
-          border-radius: 4px;
-          width: 100%;
-          display:block;
-          margin:auto;
-          height: 3rem;
-          color: hsl(0, 0%, 20%);
-          padding: 0px 9px;
-      }
- 
-      
-        // .react-datepicker__close-icon::before,
-        // .react-datepicker__close-icon::after {
-        //   background-color: grey;
-        //   }
-    }
-}
-`;
+

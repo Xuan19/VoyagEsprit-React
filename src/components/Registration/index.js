@@ -61,7 +61,7 @@ const Registration = ({
       setPasswordConfirmValide(!(password === value));
     }
     if (value === '') {
-      setPasswordConfirmValide(true);
+      setPasswordConfirmValide(false);
     }
   };
 

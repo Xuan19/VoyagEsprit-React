@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 // == Import
 import Home from 'src/components/Home';
+import Test from 'src/components/Test';
 import Travel from 'src/containers/Travel';
 import Contact from 'src/components/Contact';
 import Loader from 'src/components/Loader';
@@ -34,6 +35,11 @@ const App = ({ fetchMainTravelsFormInfo, loading, checkLogged }) => {
             exact
           >
             <Home loading={loading} />
+          </Route>
+          <Route
+            path="/test"
+          >
+            <Test />
           </Route>
 
           <Route
@@ -83,7 +89,6 @@ const App = ({ fetchMainTravelsFormInfo, loading, checkLogged }) => {
 App.propTypes = {
   // pas de paramètre
   fetchMainTravelsFormInfo: PropTypes.func.isRequired,
-  fetchFormInfo: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   // pas de paramètre
   checkLogged: PropTypes.func.isRequired,
