@@ -41,7 +41,7 @@ const TravelSmall = ({
         <Card>
           <div className="travel-carousel">
             <Carousel showThumbs={false}>
-              {image.map((img) => <img src={`http://localhost:8001/assets/images/${img}`} key={img} alt="" />)}
+              {image.map((img) => <img src={`https://voyagesprit-symfony.herokuapp.com/assets/images/${img}`} key={img} alt="" />)}
             </Carousel>
           </div>
           <article className="travel-small">

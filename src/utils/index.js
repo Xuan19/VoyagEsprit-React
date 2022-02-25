@@ -69,5 +69,5 @@ const checkImage = (image) => {
   if (image == null) {
     return "https://media.istockphoto.com/vectors/default-placeholder-profile-icon-vector-id666542874?s=170x170"
   }
-  return `http://localhost:8001/assets/profile/${image}`
+  return `https://voyagesprit-symfony.herokuapp.com/assets/profile/${image}`
 };

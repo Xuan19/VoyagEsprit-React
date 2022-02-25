@@ -39,7 +39,7 @@ const Highlight = ({
         </div>
         <div className="travel-carousel">
           <Carousel>
-            {image.map((img) => <img src={`http://localhost:8001/assets/images/${img}`} alt="" />)}
+            {image.map((img) => <img src={`https://voyagesprit-symfony.herokuapp.com/assets/images/${img}`} alt="" />)}
           </Carousel>
         </div>
       </div>
