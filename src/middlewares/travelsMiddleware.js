@@ -12,13 +12,13 @@ import {
 const travelsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_MAIN_TRAVELS_FORM_INFO:
-      api.get('http://localhost:8001/api/v1/public/main_travels_form_info')
+      api.get('https://voyagesprit-symfony.herokuapp.com/api/v1/public/main_travels_form_info')
         .then((response) => {
           store.dispatch(saveMainTravelsFormInfo(response.data));
         })
         .catch(() => {
           localStorage.setItem('token', '');
-          api.get('http://localhost:8001/api/v1/public/main_travels_form_info')
+          api.get('https://voyagesprit-symfony.herokuapp.com/api/v1/public/main_travels_form_info')
             .then((response) => {
               store.dispatch(saveMainTravelsFormInfo(response.data));
             })
@@ -40,7 +40,7 @@ const travelsMiddleware = (store) => (next) => (action) => {
       } = store.getState().travels;
       axios({
         method: 'post',
-        url: 'http://localhost:8001/api/v1/public/travels',
+        url: 'https://voyagesprit-symfony.herokuapp.com/api/v1/public/travels',
         data: {
           destination,
           category,

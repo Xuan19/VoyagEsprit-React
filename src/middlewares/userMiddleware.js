@@ -19,7 +19,7 @@ const userMiddleware = (store) => (next) => (action) => {
       const { email, password } = store.getState().user;
       axios({
         method: 'post',
-        url: 'http://localhost:8001/api/login_check',
+        url: 'https://voyagesprit-symfony.herokuapp.com/api/login_check',
         data: {
           username: email,
           password,
@@ -54,7 +54,7 @@ const userMiddleware = (store) => (next) => (action) => {
       } = store.getState().user;
       axios({
         method: 'post',
-        url: 'http://localhost:8001/api/v1/public/register',
+        url: 'https://voyagesprit-symfony.herokuapp.com/api/v1/public/register',
         // withCredentials: true,
         data: {
           email,
@@ -69,7 +69,7 @@ const userMiddleware = (store) => (next) => (action) => {
           //localStorage.setItem('token', response.data.token);
         })
         .catch((error) => {
-          // console.log(error.response.data);
+          console.log(error.response.data);
         });
 
       next(action);
@@ -77,7 +77,7 @@ const userMiddleware = (store) => (next) => (action) => {
     }
 
     case CHECK_LOGGED:
-      api.get('http://localhost:8001/api/v1/profile')
+      api.get('https://voyagesprit-symfony.herokuapp.com/api/v1/profile')
         .then((response) => {
           // console.log(response);
           // if (localStorage.getItem('token')) {
@@ -90,7 +90,7 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           localStorage.setItem('token', '');
-          api.get('http://localhost:8001/api/v1/public/main_travels_form_info')
+          api.get('https://voyagesprit-symfony.herokuapp.com/api/v1/public/main_travels_form_info')
             .then((response) => {
               //  console.log(response.data);
               store.dispatch(saveMainTravelsFormInfo(response.data));
@@ -106,7 +106,7 @@ const userMiddleware = (store) => (next) => (action) => {
     case FETCH_USER_INFO: {
       axios({
         method: 'get',
-        url: 'http://localhost:8001/api/v1/profile',
+        url: 'https://voyagesprit-symfony.herokuapp.com/api/v1/profile',
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
         .then((response) => {
@@ -139,7 +139,7 @@ const userMiddleware = (store) => (next) => (action) => {
       } = store.getState().user;
       axios({
         method: 'post',
-        url: 'http://localhost:8001/api/v1/profile',
+        url: 'https://voyagesprit-symfony.herokuapp.com/api/v1/profile',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           // 'Content-Type': 'application/JSON',
