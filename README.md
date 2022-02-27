@@ -21,6 +21,7 @@ https://voyag-esprit-react-d8b6h458h-xuan19.vercel.app/
 - Search bar
 - Customer login
 - Wishlist
+- Registration
 
 
 
